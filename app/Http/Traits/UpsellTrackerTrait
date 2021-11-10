@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Http\Traits;
+
+use App\Models\UpsellStats;
+
+
+trait UpsellTrackerTrait
+{
+
+    public function UpsellTracker($stats_type, $value){
+
+        $upsell_stats = UpsellStats::where('upsell_id',request('id'))
+            ->where('type',$stats_type)
+            ->where('upsell_created_at',today()->format('Y-m-d'))
+            ->first();
+        if($upsell_stats != null):
+            $updated_value = $upsell_stats->value;
+            $updated_value += $value;
+            UpsellStats::where('id',$upsell_stats->id)
+            ->update([
+                'value' => $updated_value,
+                'upsell_created_at' => today()->format('Y-m-d'),
+            ]);
+            return response()->json(['status' =>true ]);
+        else:
+            // dd($upsell_stats);
+            $upsell_data->upsellStats()->create([
+                'type'  => $stats_type,
+                'value' => $value,
+                'upsell_created_at' => today()->format('Y-m-d'),
+            ]);
+            return response()->json(['status' =>true ]);  
+        endif;
+    }
+
+}

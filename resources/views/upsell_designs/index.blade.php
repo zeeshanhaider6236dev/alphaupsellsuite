@@ -1,0 +1,1 @@
+@include(getSingleUpsellHtml($upsell->upsellType->name))
