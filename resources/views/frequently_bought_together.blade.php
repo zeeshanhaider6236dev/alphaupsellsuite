@@ -2,6 +2,7 @@
 @section('content')
 @include('includes.upsell_header')
 <!-- ======== This code is for alpha upsell suite 2.0========= -->
+
 <div class="container-fluid">
     <div class="container">
         <div class="col-md-12 tabs">
