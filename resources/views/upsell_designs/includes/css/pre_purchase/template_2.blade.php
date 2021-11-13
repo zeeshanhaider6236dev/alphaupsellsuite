@@ -138,7 +138,7 @@
   grid-row-end: auto !important;
   grid-row-gap: 0 !important;
   grid-row-start: auto !important;
-  grid-template-areas: none !important; 
+  grid-template-areas: none !important;
   grid-template-columns: none !important;
   grid-template-rows: none !important;
   height: auto !important;
@@ -188,14 +188,14 @@
   offset-inline-end: auto !important;
   offset-inline-start: auto !important;
   opacity: 1.0 !important;
-  order: 0 !important; 
+  order: 0 !important;
   orphans: 2 !important;
   outline-color: initial !important;
   outline-offset: 0 !important;
-  outline-style: none !important; 
+  outline-style: none !important;
   outline-width: medium !important;
-  overflow: visible !important; 
-  overflow-wrap: normal !important; 
+  overflow: visible !important;
+  overflow-wrap: normal !important;
   overflow-x: visible !important;
   overflow-y: visible !important;
   padding-block-end: 0 !important;
@@ -208,12 +208,12 @@
   padding-top: 0 !important;
   page-break-after: auto !important;
   page-break-before: auto !important;
-  page-break-inside: auto !important; 
+  page-break-inside: auto !important;
   perspective: none !important;
   perspective-origin: 50% 50% !important;
   pointer-events: auto !important;
   position: static !important;
-  quotes: initial !important; 
+  quotes: initial !important;
   resize: none !important;
   right: auto !important;
   ruby-align: space-around !important;
@@ -277,131 +277,131 @@
 
 /* #1- Portrait tablet to landscape and netbooks */
 @media (min-width: 768px) and (max-width: 979px) {
-  
-  
-  
+
+
+
   .reset-t2.aus-t2-heading.aus-t2-heading-resp{
     font-size :23px !important;
     margin : 0 5px !important;
-  
+
   }
-  
-  
+
+
   .reset-t2.aus-t2-cross-btn.aus-t2-cross-btn{
     font-size : 20px !important;
     padding: 1px 7px !important;
-  
+
   }
-  
+
   .reset-t2.aus-tp-2-title.aus-tp-2-title-resp{
     font-size : 17px !important;
-  
+
   }
-  
+
   .reset-t2.aus-t2-tick-emoji.aus-t2-tick-emoji-resp{
     font-size: 12px !important;
     padding :4px 8px !important;
-  
-  
+
+
   }
-  
-  
-  
+
+
+
 
   .reset-t2.aus-t2-mp-text.aus-t2-mp-text-resp{
     font-size: 17px !important;
-  
-  
+
+
   }
   .reset-t2.aus-mp-offer-percentage.aus-mp-offer-percentage-resp{
-  
+
     font-size : 17px !important;
-  
-  
+
+
   }
-  
+
   .reset-t2.aus-tp-2-img-div.aus-tp-2-img-div-resp{
     width: 15% !important;
-  
-  
-  
+
+
+
   }
-  
+
   .reset-t2.aus-total-tp-2.aus-total-tp-2-resp{
     font-size: 17px !important;
-  
-  
+
+
   }
-  
-  
+
+
   .reset-t2.aus-tp-2-price-fig.aus-tp-2-price-fig-resp{
     font-size : 16px !important;
-  
-  
+
+
   }
-  
+
   .reset-t2.aus-tp-2-checkout-btn.aus-tp-2-checkout-btn-resp{
     font-size : 13px !important;
     padding: 8px 12px !important;
     width: 110px !important;
     max-width: 110px !important;
     min-width: 110px !important;
-    
-  
-  
+
+
+
   }
-  
-  
+
+
   .reset-t2.aus-t2-timer-text.aus-t2-timer-text-resp{
     font-size: 20px !important;
-  
-  
+
+
   }
-  
+
   .reset-t2.aus-t2-timer-fig.aus-t2-timer-fig-resp{
     font-size: 14px !important;
     padding: 5px 5px !
-  
+
     }
    .reset-t2.aus-t2-ib-title.aus-t2-ib-title-resp{
     font-size : 16px !important;
-   
-   
+
+
    }
-  
-  
+
+
   .reset-t2.aus-t2-lp-price-fig.aus-t2-lp-price-fig-resp{
     font-size : 16px !important;
     margin: 0 !important;
-  
-  
+
+
   }
-  
+
   .reset-t2.aus-t2-variant-selector.aus-t2-variant-selector-resp{
-    padding: 3px 3px !important;    
+    padding: 3px 3px !important;
     margin: 3px 3px !important;
-  
-  
-  
+
+
+
   }
-  
-  
+
+
   .reset-t2.aus-t2-lp-offer-badge.aus-t2-lp-offer-badge-resp{
     font-size : 12px !important;
     padding: 2px 4px!important;
-  
-  
+
+
   }
-  
+
   .reset-t2.aus-t2-lp-atc-btn.aus-t2-lp-atc-btn-resp{
     font-size : 13px !important;
     padding : 7px 9px !important;
     width: 110px !important;
     min-width: 110px !important;
     max-width: 110px !important;
-    
+
   }
-  
+
   .reset-t2.aus-t2-footer-btn.aus-t2-footer-btn-resp{
     padding: 9px 25px !important;
     font-size : 17px !important;
@@ -411,8 +411,8 @@
     min-width: 160px !important;
     max-width: 160px !important;
 
-  
-  
+
+
   }
 
 
@@ -426,35 +426,35 @@
       height: 100vh !important;
       }
 
-    
+
    .reset-t2.aus-t2-heading.aus-t2-heading-resp{
     font-size :17px !important;
     margin : 0 5px !important;
-  
+
   }
-  
-  
+
+
   .reset-t2.aus-t2-tp-1.aus-t2-tp-1-resp{
     padding :6px !important;
-    
-  }
-  
-  
 
- 
+  }
+
+
+
+
   .reset-t2.aus-t2-cross-btn.aus-t2-cross-btn{
     font-size : 14px !important;
     padding: 1px 5px !important;
-  
-  }
-  
 
-  
+  }
+
+
+
   .reset-t2.aus-t2-tick-emoji.aus-t2-tick-emoji-resp{
     font-size: 9px !important;
     padding :4px 7px !important;
-  
-  
+
+
   }
 
   .reset-t2.aus-t2-tp-2.aus-t2-tp-2-resp{
@@ -474,7 +474,7 @@
 
 
   }
-  
+
   .reset-t2.aus-tp-2-img-div.aus-tp-2-img-div-resp {
     width: 18% !important;
     margin-left : 0px !important;
@@ -540,45 +540,45 @@
   }
 
 
-  
-  
-  
+
+
+
 
   .reset-t2.aus-t2-mp-text.aus-t2-mp-text-resp{
     font-size: 11px !important;
-  
-  
+
+
   }
   .reset-t2.aus-mp-offer-percentage.aus-mp-offer-percentage-resp{
-  
+
     font-size : 11px !important;
-  
-  
+
+
   }
-  
-  
-  
-  
+
+
+
+
 
   .reset-t2.aus-t2-mid-part.aus-t2-mid-part-resp{
     margin-right: 4px !important;
     margin-left: 4px !important;
   }
-  
-  
-  
 
-  
+
+
+
+
   .reset-t2.aus-t2-timer-text.aus-t2-timer-text-resp{
     font-size: 13px !important;
-  
-  
+
+
   }
-  
+
   .reset-t2.aus-t2-timer-fig.aus-t2-timer-fig-resp{
     font-size: 13px !important;
     padding: 3px 4px !important;
-  
+
   }
 
 
@@ -589,20 +589,20 @@
   }
    .reset-t2.aus-t2-ib-title.aus-t2-ib-title-resp{
     font-size : 12px !important;
-    
-   
-   
-   }  
+
+
+
+   }
    .reset-t2.aus-t2-last-portion-img-div.aus-t2-last-portion-img-div-resp{
     width : 18% !important;
     margin-left: 0px !important;
-  
-  
+
+
   }
   .reset-t2.aus-t2-last-portion-img.aus-t2-last-portion-img-resp{
     width: 21% !important;
-  
-  
+
+
   }
 
   .reset-t2.aus-t2-item-box.aus-t2-item-box-resp{
@@ -610,22 +610,22 @@
     margin-right: 0px !important;
 
   }
-  
+
   .reset-t2.aus-t2-lp-text-div.aus-t2-lp-text-div-resp{
     margin: 0px !important;
     left: 23% !important;
-    
-    
+
+
   }
-  
-  
+
+
   .reset-t2.aus-t2-lp-price-fig.aus-t2-lp-price-fig-resp{
     font-size : 12px !important;
     margin: 0 !important;
-  
-  
+
+
   }
-  
+
   .reset-t2.aus-t2-variant-selector.aus-t2-variant-selector-resp{
     font-size: 9px !important;
     padding : 2px 0px !important;
@@ -633,18 +633,18 @@
     width : 52px !important;
     height: 18px !important;
     min-height: 18px !important;
-  
-  
+
+
   }
-  
-  
+
+
   .reset-t2.aus-t2-lp-offer-badge.aus-t2-lp-offer-badge-resp{
     font-size : 8px !important;
     padding: 2px 4px!important;
-  
-  
+
+
   }
-  
+
   .reset-t2.aus-t2-lp-atc-btn.aus-t2-lp-atc-btn-resp{
     font-size : 10px !important;
     padding : 7px 12px !important;
@@ -654,10 +654,10 @@
     min-width: 90px !important;
     max-width: 90px !important;
     text-align: center !important;
-    
-    
+
+
   }
-  
+
   .reset-t2.aus-t2-footer-btn.aus-t2-footer-btn-resp{
     padding: 6px 18px !important;
     font-size : 11px !important;
@@ -666,7 +666,7 @@
     min-width:  106px !important;
     max-width: 106px !important;
   }
-  
+
 
   .aus-t2-item-box.aus-t2-item-box-resp{
     margin: 5px 0px !important;
@@ -674,14 +674,14 @@
 
 
   }
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
   }
 
 
@@ -702,7 +702,7 @@
 }
 .reset-t2.aus-t2-top-part{
     background-color: {{$upsell->setting['alpha_t2_heading_background']}}!important;
-    display: block !important; 
+    display: block !important;
     padding: 5px !important;
 }
 
@@ -762,8 +762,8 @@
 .reset-t2.aus-tp-2-img-div{
     width: 10% !important;
     margin-left: 30px !important;
- 
-    
+
+
 
 }
 
@@ -772,7 +772,7 @@
 .reset-t2.aus-tp-2-img{
     width: 80% !important;
     padding: 4px 4px !important;
-    
+
 }
 
 
@@ -780,7 +780,7 @@
     font-size: 20px !important;
     color: #5d5f5e !important;
     margin-top: 10px !important;
-    
+
 
 
 
@@ -808,14 +808,14 @@
     align-items: center !important;
     flex-direction: column !important;
     justify-content: center !important;
-    
+
 
 }
 
 .reset-t2.aus-tp-2-price-div{
     display: flex !important;
     align-items : center !important;
-    
+
 
 
 }
@@ -860,7 +860,7 @@
     margin-right: 22px !important;
     margin-top: 10px !important;
     margin-bottom: 10px !important;
-    
+
 
 
 }
@@ -878,7 +878,7 @@
 .reset-t2.aus-mp-offer-percentage{
     display: inline !important;
     font-size: 25px !important;
-    
+
     color: {{$upsell->setting['alpha_t2_deal_heading_color']}} !important;
     font-weight: bold !important;
 }
@@ -945,7 +945,7 @@
 .reset-t2.aus-t2-last-portion-img{
     width: 10% !important;
     height: auto !important;
-   
+
 }
 .reset-t2.aus-t2-lp-text-div{
     position: absolute !important;
@@ -978,7 +978,7 @@
     margin-top: 5px !important;
     margin-bottom: 5px !important;
     margin-left: 5px !important;
-    
+
     font-size: 20px !important;
     color: #5d5f5e !important;
     overflow: hidden;
@@ -1054,3 +1054,4 @@
     min-width: 187px !important;
     max-width: 187px !important;
 }
+@include('upsell_designs.includes.css.pre_purchase.common_css')

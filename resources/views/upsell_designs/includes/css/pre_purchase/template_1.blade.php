@@ -150,7 +150,7 @@
     grid-row-end: auto !important;
     grid-row-gap: 0 !important;
     grid-row-start: auto !important;
-    grid-template-areas: none !important; 
+    grid-template-areas: none !important;
     grid-template-columns: none !important;
     grid-template-rows: none !important;
     height: auto !important;
@@ -200,14 +200,14 @@
     offset-inline-end: auto !important;
     offset-inline-start: auto !important;
     opacity: 1.0 !important;
-    order: 0 !important; 
+    order: 0 !important;
     orphans: 2 !important;
     outline-color: initial !important;
     outline-offset: 0 !important;
-    outline-style: none !important; 
+    outline-style: none !important;
     outline-width: medium !important;
-    overflow: visible !important; 
-    overflow-wrap: normal !important; 
+    overflow: visible !important;
+    overflow-wrap: normal !important;
     overflow-x: visible !important;
     overflow-y: visible !important;
     padding-block-end: 0 !important;
@@ -220,12 +220,12 @@
     padding-top: 0 !important;
     page-break-after: auto !important;
     page-break-before: auto !important;
-    page-break-inside: auto !important; 
+    page-break-inside: auto !important;
     perspective: none !important;
     perspective-origin: 50% 50% !important;
     pointer-events: auto !important;
     position: static !important;
-    quotes: initial !important; 
+    quotes: initial !important;
     resize: none !important;
     right: auto !important;
     ruby-align: space-around !important;
@@ -298,25 +298,25 @@
 /* #1- Desktops */
 @media (min-width: 980px) {
 
-  .reset-t1.aus-t1-item-box.aus-t1-item-box-resp{ 
+  .reset-t1.aus-t1-item-box.aus-t1-item-box-resp{
     width: 29% !important;
-  
-  
-  
-  
+
+
+
+
   }
   .reset-t1.aus-item-title.aus-item-title-resp{
   	font-size : 18px !important;
-  
+
   }
   .reset-t1.aus-t1-atc-btn.aus-t1-atc-btn-resp{
     font-size: 18px !important;
-    
-  
+
+
   }
-  
-  
-  
+
+
+
 
 }
 
@@ -335,106 +335,106 @@
   .reset-t1.aus-t1-item-box.aus-t1-item-box-resp{
   	width: 28% !important;
   	}
-  
-  
+
+
   .reset-t1.aus-t1-bt-2-title.aus-t1-bt-2-title-resp{
   	font-size : 20px !important;
-  
-  
+
+
   }
-  
+
   .reset-t1.aus-t1-content-div.aus-t1-content-div-resp{
   	height: 45% !important;
   }
-  
+
   .reset-t1.aus-bt-2-total.aus-bt-2-total-resp{
   	font-size : 20px !important;
-  
-  
+
+
   }
   .reset-t1.aus-bt-2-price-fig.aus-bt-2-price-fig-resp{
   	font-size: 20px !important;
-  
-  
+
+
   }
   .reset-t1.aus-item-title.aus-item-title-resp{
   	font-size: 16px !important;
-  	
-  
+
+
   }
-  
+
   .reset-t1.aus-drop-down-t1.aus-drop-down-t1-resp{
   	height: 17px !important;
     width: 30% !important;
     font-size: 13px !important;
-  
-  
+
+
   }
   .reset-t1.aus-t1-atc-btn.aus-t1-atc-btn-resp{
   	font-size : 16px !important;
-  
+
   }
-  
+
   .reset-t1.aus-t1-checkout-btn.aus-t1-checkout-btn-resp{
   	font-size : 16px !important;
   }
   .reset-t1.aus-t1-nts-btn.aus-t1-nts-btn-resp{
   	font-size : 16px !important;
-    
+
   }
   .reset-t1.aus-t1-tick-emoji.aus-t1-tick-emoji-resp{
   	padding: 2px 7px!important;
     font-size: 20px!important;
-  
+
   }
-  
+
   .reset-t2.aus-mid-container-text.aus-mid-container-text-resp{
     font-size: 20px !important;
-    
-  	
-  
+
+
+
   }
   .reset-t1.aus-t1-timer-text.aus-t1-timer-text-resp{
   	font-size : 20px !important;
-    
+
   }
   .reset-t1.aus-t1-timer-fig.aus-t1-timer-fig-resp{
   	font-size : 18px !important;
   }
-  
+
   .reset-t1.aus-t1-timer-colon.aus-t1-timer-colon-resp{
   	font-size :18px !important;
-  
+
   }
-  
-  
+
+
 }
 
 /* #3- Landscape phone to portrait tablet */
 @media (max-width: 767px) {  }
 
 /* #4- Landscape phones and down */
-@media (max-width: 480px) { 
-  
+@media (max-width: 480px) {
+
     .reset-t1.aus-t1-main-container.aus-t1-main-container-2{
 
     width: 100% !important;
   }
 
-  
+
   .reset-t1.aus-t1-top-container-text.aus-t1-top-container-text-resp{
   	font-size : 17px !important;
-  
-  
+
+
   }
-  
+
   .reset-t1.aus-t1-bt-img-div.aus-t1-bt-img-div-resp{
   	width: 25% !important;
-    
-  
-  
+
+
+
   }
-  
+
   .reset-t1.aus-t1-cross-btn.aus-t1-cross-btn-resp{
     right: 5px !important;
     top: 0px !important;
@@ -444,58 +444,58 @@
   .reset-t1.aus-t1-item-box.aus-t1-item-box-resp{
   	width: 80% !important;
 	display: flex !important;
-    
+
   }
-  
+
   .reset-t1.aus-t1-lp-img-div.aus-t1-lp-img-div-resp{
   	display: inline !important;
     width : 34% !important;
     height: auto !important;
-  
+
   }
-  
+
   .reset-t1.aus-t1-lp-img.aus-t1-lp-img-resp{
   	width: 100% !important;
     height: auto !important;
-  	
+
   }
-  
+
   .reset-t1.aus-t1-ib-price.aus-t1-ib-price-resp{
   	font-size: 12px !important;
-  
+
   }
   .reset-t1.aus-t1-offer-badge.aus-t1-offer-badge-resp{
   	font-size : 12px !important;
   }
-  
+
   .reset-t1.aus-t1-bt-2-title.aus-t1-bt-2-title-resp{
   	font-size : 13px !important;
-  
-  
+
+
   }
-  
+
   .reset-t1.aus-bt-2-total.aus-bt-2-total-resp{
   	font-size : 13px !important;
-  
-  
+
+
   }
   .reset-t1.aus-bt-2-price-fig.aus-bt-2-price-fig-resp{
   	font-size: 13px !important;
-  
-  
+
+
   }
   .reset-t1.aus-item-title.aus-item-title-resp{
   	font-size: 14px !important;
     margin-top: 0px !important;
-  	
-  
+
+
   }
   .reset-t1.aus-t1-atc-btn.aus-t1-atc-btn-resp{
   	font-size : 12px !important;
     padding : 6px 16px !important;
-  
+
   }
-  
+
   .reset-t1.aus-t1-checkout-btn.aus-t1-checkout-btn-resp{
   	font-size : 12px !important;
     padding: 7px 30px !important;
@@ -503,44 +503,44 @@
   .reset-t1.aus-t1-nts-btn.aus-t1-nts-btn-resp{
   	font-size : 12px !important;
     padding : 7px 30px !important;
-    
+
   }
-  
+
   .reset-t1.aus-drop-down-t1.aus-drop-down-t1-resp{
   	font-size: 10px !important;
     height: 15px !important;
     width: 27% !important;
-  
+
   }
   .reset-t1.aus-t1-tick-emoji.aus-t1-tick-emoji-resp{
   	padding: 4px 7px!important;
     font-size: 13px!important;
-  
+
   }
-  
+
   .reset-t2.aus-mid-container-text.aus-mid-container-text-resp{
     font-size: 14px !important;
-    
-  	
-  
+
+
+
   }
   .reset-t1.aus-t1-timer-text.aus-t1-timer-text-resp{
   	font-size : 14px !important;
-    
+
   }
   .reset-t1.aus-t1-timer-fig.aus-t1-timer-fig-resp{
   	font-size : 12px !important;
     padding : 3px 4px !important;
   }
-  
+
   .reset-t1.aus-t1-timer-colon.aus-t1-timer-colon-resp{
   	font-size :12px !important;
-  
+
   }
-  
+
   .reset-t1.aus-t1-content-div.aus-t1-content-div-resp{
   	height: 99% !important;
-  	
+
   }
 
 
@@ -587,7 +587,7 @@
     font-size : 26px !important;
     padding: 4px 10px !important;
     border-radius: 50% !important;
-    
+
 
 
 
@@ -608,7 +608,7 @@
     justify-content: flex-start !important;
     position: relative !important;
     margin : 10px !important;
-    
+
   }
   .reset-t1.aus-t1-bt-img-div{
     width: 13% !important;
@@ -633,7 +633,7 @@
     position: absolute !important;
     right : 10px !important;
     top: 0px !important;
-    font-size : 30px !important; 
+    font-size : 30px !important;
     color : {{ $upsell->setting['alpha_cross_icom_color'] }} !important;
     cursor: pointer !important;
 
@@ -654,7 +654,7 @@
     color : black !important;
     width: 95% !important;
     margin: auto 0px !important;
-  
+
 
 
   }
@@ -662,7 +662,7 @@
     align-self: flex-end !important;
     position : absolute !important;
     right: 0px !important;
-    
+
   }
 
   .reset-t1.aus-bt-2-total{
@@ -727,7 +727,7 @@
 
   }
 
-  
+
 
   .reset-t1.aus-t1-lp-img-div{
     /* width: % !important; */
@@ -751,7 +751,7 @@
     color: black !important;
     margin: 5px !important;
     width: 80% !important;
-    
+
 
 
   }
@@ -763,11 +763,11 @@
   }
 
   .reset-t1.aus-t1-drop-down-div{
-    margin: 5px !important; 
+    margin: 5px !important;
   }
   .reset-t1.aus-t1-ib-price{
     color : {{$upsell->setting['alpha_original_price_color_m1']}}!important;
-    font-size : 18px !important; 
+    font-size : 18px !important;
   }
 
   .reset-t1.aus-t1-offer-badge{
@@ -849,3 +849,5 @@
     font-weight: bold !important;
     cursor: pointer !important;
   }
+
+@include('upsell_designs.includes.css.pre_purchase.common_css')
