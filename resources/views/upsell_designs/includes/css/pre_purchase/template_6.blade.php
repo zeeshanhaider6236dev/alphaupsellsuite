@@ -18,47 +18,47 @@
     height : auto !important;
     margin: 2px  auto !important;
     background-color: white !important;
-  
+
 }
 
 /* /* SMARTPHONES PORTRAIT */
 @media only screen and (max-width: 480px) {
-  
+
   .reset-t6.aus-t6-top-part.aus-t6-top-part-resp{
     margin: 0px !important;
     padding: 5px !important;
-  
-  
+
+
   }
-  
+
   .reset-t6.aus-t6-tp-text.aus-t6-tp-text-resp{
     font-size: 17px !important;
-  
-  
-  
+
+
+
   }
   .reset-t6.aus-t6-mp-text.aus-t6-mp-text-resp{
     font-size: 20px !important;
     margin: 5px !important;
-  
-  
+
+
   }
-  
+
   .reset-t6.aus-t6-mid-part.aus-t6-mid-part-resp{
     width: 100% !important;
-  
-  
+
+
   }
-  
-  
+
+
   .reset-t6.aus-t6-tp-cross-btn.aus-t6-tp-cross-btn-resp{
     font-size: 13px !important;
     right: 5px !important;
     padding: 2px 6px !important;
-  
-  
+
+
   }
-  
+
   .reset-t6.aus-t6-mp-content-div.aus-t6-mp-content-div-resp{
     display: flex !important;
     flex-direction: column !important;
@@ -66,47 +66,47 @@
     justify-content: space-evenly !important;
     height: 100px !important;
     width: 100% !important;
-  
-  
+
+
   }
   .reset-t6.aus-t6-mp-box-img-div.aus-t6-mp-box-img-div-resp{
     width: 30% !important;
-    
-  
-  
+
+
+
   }
-  
+
   .reset-t6.aus-t6-mp-box-title.aus-t6-mp-box-title-resp{
     margin: 2px !important;
     text-align: unset !important;
     font-size: 14px !important;
-    
-  
-  
+
+
+
   }
   .reset-t6.aus-t6-mp-box-price.aus-t6-mp-box-price-resp{
     margin: 2px !important;
     text-align: unset !important;
     font-size: 14px !important;
-  
-  
+
+
   }
   .reset-t6.aus-t6-mp-box-btn.aus-t6-mp-box-btn-resp{
     font-size: 14px !important;
     padding: 5px 3px !important;
     width: 150px !important;
     margin: 2px !important;
-  
-  
+
+
   }
-  
+
   .reset-t6.aus-t6-mp-box.aus-t6-mp-box-resp{
     flex-direction: row !important;
     width: 90% !important;
     justify-content: unset !important;
     margin: 5px !important;
     height: 110px !important;
-  
+
   }
   .reset-t6.aus-t6-lp-box.aus-t6-lp-box-resp{
     display: flex !important;
@@ -116,16 +116,16 @@
     height: 140px !important;
     justify-content: unset !important;
   }
-  
+
   .reset-t6.aus-t6-lp-text.aus-t6-lp-text-resp{
     font-size: 20px !important;
-  
-  
+
+
   }
   .reset-t6.aus-t6-last-portion.aus-t6-last-portion-resp{
     width: 90% !important;
-  
-  
+
+
   }
   .reset-t6.aus-t6-ib-lp-content-div.aus-t6-ib-lp-content-div-resp{
     height: 120px !important;
@@ -139,214 +139,214 @@
     font-size: 15px !important;
     margin: 2px !important;
   }
-  
+
   .reset-t6.aus-t6-lp-ib-price.aus-t6-lp-ib-price-resp{
-   font-size: 15px !important; 
-    
-    
+   font-size: 15px !important;
+
+
   }
   .reset-t6.aus-t6-lp-ib-offer-badge.aus-t6-lp-ib-offer-badge-resp{
     font-size: 12px !important;
-  
-  
+
+
   }
-  
+
   .reset-t6.aus-t6-drop-down-div.aus-t6-drop-down-div-resp{
-  
+
     margin: 0px !important;
-  
-  
-  
+
+
+
   }
-  
-  
+
+
   .reset-t6.aus-t6-lp-img-div.aus-t6-lp-img-div-resp{
     width: 19% !important;
     margin: 5px 0px !important;
-  
-  
-  
+
+
+
   }
-  
+
   .reset-t6.us-t6-lp-img-div.us-t6-lp-img-div-resp{
     width: 30% !important;
-  
-  
-  
+
+
+
   }
   .reset-t6.aus-t6-drop-down.aus-t6-drop-down-resp{
     width: 50px !important;
     padding: 3px 3px !important;
     font-size: 9px !important;
-  
-  
+
+
   }
-  
+
   .reset-t6.aus-t6-atc-btn.aus-t6-atc-btn-resp{
     width: 178px !important;
     font-size: 14px !important;
     padding: 3px 6px !important;
     margin: 2px !important;
-  
-  
-  
-  
+
+
+
+
   }
-  
+
   .reset-t6.aus-t6-nts-btn.aus-t6-nts-btn-resp{
     width: 60%  !important;
-    font-size: 20px  !important;  
-  
-  
+    font-size: 20px  !important;
+
+
   }
-  
+
   .reset-t6.aus-t6-footer.aus-t6-footer-resp{
     padding: 10px !important;
-  
-  
+
+
   }
-    
 
 
-} 
+
+}
 
 
 
 /* TABLETS PORTRAIT */
 @media only screen and (min-width: 768px) and (max-width: 980px){
-  
+
   .reset-t6.aus-t6-last-portion.aus-t6-last-portion-resp{
-  
-    width: 58% !important; 
-  
+
+    width: 58% !important;
+
   }
   .reset-t6.aus-t6-mid-part.aus-t6-mid-part-resp{
-  
+
     width: 36% !important;
-  
-  
+
+
   }
-  
-  
-  
-  
+
+
+
+
    .reset-t6.aus-t6-mp-box.aus-t6-mp-box-resp{
     width: 82% !important;
     height: 295px !important;
     }
   .reset-t6.aus-t6-lp-box.aus-t6-lp-box-resp{
-  
+
     margin: 7px !important;
     padding: 7px !important;
     width: 43% !important;
-  
+
   }
-  
+
   .reset-t6.aus-t6-lp-img-div.aus-t6-lp-img-div-resp{
-  
+
     width: 45% !important;
-  
-  
+
+
   }
   .reset-t6.aus-t6-mp-box-img-div.aus-t6-mp-box-img-div-resp{
     width: 45% !important;
-  
-  
+
+
   }
-  
+
   .reset-t6.aus-t6-lp-ib-title.aus-t6-lp-ib-title-resp{
     font-size: 15px !important;
-  
-  
+
+
   }
   .reset-t6.aus-t6-lp-ib-price.aus-t6-lp-ib-price-resp{
     font-size: 15px !important;
-  
-  
+
+
   }
-  
+
   .reset-t6.aus-t6-lp-ib-offer-badge.aus-t6-lp-ib-offer-badge-resp{
     font-size: 10px !important;
-  
-  
-  
+
+
+
   }
-  
+
   .reset-t6.aus-t6-drop-down.aus-t6-drop-down-resp{
     padding: 2px 0px !important;
     width: 55px !important;
     font-size: 12px !important;
-  
-  
+
+
   }
-  
+
   .reset-t6.aus-t6-drop-down-div.aus-t6-drop-down-div-resp{
     margin: 0px !important;
     width: 200px !important;
 
-  
-  
+
+
   }
   .reset-t6.aus-t6-atc-btn.aus-t6-atc-btn-resp{
     font-size: 15px !important;
-  
-  
+
+
   }
-  
+
   .reset-t6.aus-t6-mp-box-title.aus-t6-mp-box-title-resp{
     font-size: 15px !important;
-  
-  
+
+
   }
-  
+
   .reset-t6.aus-t6-mp-box-price.aus-t6-mp-box-price-resp{
     font-size: 15px !important;
-  
+
   }
   .reset-t6.aus-t6-mp-box-btn.aus-t6-mp-box-btn-resp{
     font-size: 15px !important;
     padding: 4px 7px !important;
-  
+
   }
 
   .reset-t6.aus-t6-mp-text.aus-t6-mp-text-resp{
     font-size: 18px !important;
-  
+
   }
-  
+
   .reset-t6.aus-t6-tp-text.aus-t6-tp-text-resp{
     font-size: 20px !important;
-  
-  
+
+
   }
-  
+
   .reset-t6.aus-t6-tp-cross-btn.aus-t6-tp-cross-btn-resp{
     font-size: 20px !important;
     padding: 3px 10px !important;
-  
-  
+
+
   }
-  
+
   .reset-t6.aus-t6-lp-text.aus-t6-lp-text-resp{
     font-size: 18px !important;
     margin-right: 5px !important;
-  
+
   }
-  
+
   .reset-t6.aus-t6-nts-btn.aus-t6-nts-btn-resp{
     font-size: 20px !important;
     width: 30% !important;
-  
+
   }
   .reset-t6.aus-t6-ib-lp-content-div.aus-t6-ib-lp-content-div-resp{
     height: 303px !important;
 
 
   }
-  
-  
-  
-  
+
+
+
+
 
 }
 
@@ -358,56 +358,56 @@
 /*  @media only screen and (min-width: 1024px) {
 
   .reset-t6.aus-t6-mid-part.aus-t6-mid-part-resp{
-  
+
     width: 36% !important;
-  
-  
+
+
   }
-  
+
   .reset-t6.aus-t6-mp-box.aus-t6-mp-box-resp{
     width: 85% !important;
     height: 335px !important;
-  
-  
+
+
   }
-  
+
   .reset-t6.aus-t6-mp-box-img-div.aus-t6-mp-box-img-div-resp{
     width: 60% !important;
-  
+
   }
   .reset-t6.aus-t6-last-portion.aus-t6-last-portion-resp{
-  
-    width: 60% !important; 
-  
+
+    width: 60% !important;
+
   }
-  
+
   .reset-t6.aus-t6-lp-box.aus-t6-lp-box-resp{
-  
+
     width: 35% !important;
     height: 365px !important;
-  
-  
+
+
   }
-  
+
   .reset-t6.aus-t6-drop-down-div.aus-t6-drop-down-div-resp{
     margin: 5px 0px !important;
-    
+
   }
   .reset-t6.aus-t6-drop-down.aus-t6-drop-down-resp{
     width: 61px !important;
-    font-size: 13px !important;  
-  
+    font-size: 13px !important;
+
   }
-  
+
   .reset-t6.aus-t6-lp-box-div.aus-t6-lp-box-div-resp{
     display: inline !important;
     width: 125% !important;
-    
-  
-  
+
+
+
   }
-  
-}  
+
+}
  */
 
 
@@ -533,7 +533,7 @@
     grid-row-end: auto !important;
     grid-row-gap: 0 !important;
     grid-row-start: auto !important;
-    grid-template-areas: none !important; 
+    grid-template-areas: none !important;
     grid-template-columns: none !important;
     grid-template-rows: none !important;
     height: auto !important;
@@ -583,14 +583,14 @@
     offset-inline-end: auto !important;
     offset-inline-start: auto !important;
     opacity: 1.0 !important;
-    order: 0 !important; 
+    order: 0 !important;
     orphans: 2 !important;
     outline-color: initial !important;
     outline-offset: 0 !important;
-    outline-style: none !important; 
+    outline-style: none !important;
     outline-width: medium !important;
-    overflow: visible !important; 
-    overflow-wrap: normal !important; 
+    overflow: visible !important;
+    overflow-wrap: normal !important;
     overflow-x: visible !important;
     overflow-y: visible !important;
     padding-block-end: 0 !important;
@@ -603,12 +603,12 @@
     padding-top: 0 !important;
     page-break-after: auto !important;
     page-break-before: auto !important;
-    page-break-inside: auto !important; 
+    page-break-inside: auto !important;
     perspective: none !important;
     perspective-origin: 50% 50% !important;
     pointer-events: auto !important;
     position: static !important;
-    quotes: initial !important; 
+    quotes: initial !important;
     resize: none !important;
     right: auto !important;
     ruby-align: space-around !important;
@@ -728,7 +728,7 @@
      margin: auto !important;
      font-size: 22px !important;
      color: #cd780b  !important;
-     font-weight: 700 !important;  
+     font-weight: 700 !important;
 
 
 
@@ -744,7 +744,7 @@
     margin: 20px !important;
     padding: 10px !important;
 
-    
+
 
 
 }
@@ -765,20 +765,20 @@
 .reset-t6.aus-t6-mp-box-title{
     width: 90% !important;
     margin: 10px  auto !important;
-    text-align: center !important;   
+    text-align: center !important;
     color: black !important;
-    font-size: 20px !important; 
+    font-size: 20px !important;
 
 
 }
 
 .reset-t6.aus-t6-mp-box-price{
-    margin: 10px auto !important;    
+    margin: 10px auto !important;
     text-align: center !important;
     font-size: 20px !important;
     font-weight: bold !important;
     color: {{ $upsell->setting['alpha_t6_cart_product_price_color'] }} !important;
-  
+
 
 }
 
@@ -860,7 +860,7 @@ margin: auto !important;
 
 
 .reset-t6.aus-t6-last-portion{
-    display: inline-flex !important;  
+    display: inline-flex !important;
     flex-direction: column !important;
     width: 65% !important;
 
@@ -882,7 +882,7 @@ margin: auto !important;
     font-size: 22px !important;
     color: {{ $upsell->setting['alpha_t6_product_title_color'] }} !important;
     font-weight: 700 !important;
-    
+
 
 
 }
@@ -910,7 +910,7 @@ margin: auto !important;
     font-size: 20px !important;
     color: {{$upsell->setting ['alpha_t6_price_color'] }} !important;
     font-weight: 700 !important;
-   
+
 }
 
 .reset-t6.aus-t6-lp-ib-offer-badge{
@@ -938,7 +938,7 @@ margin: auto !important;
     color: black !important;
     background: none !important;
     appearance: menulist !important;
-    -moz-appearance: menulist !important;    
+    -moz-appearance: menulist !important;
     -webkit-appearence: menulist !important;
     border: 0.5px solid black !important;
     margin: 4px !important;
@@ -951,7 +951,7 @@ margin: auto !important;
 }
 
 .reset-t6.aus-t6-atc-btn{
-    width: 82% !important;  
+    width: 82% !important;
     font-size: 20px !important;
     color : {{ $upsell->setting['alpha_t6_btn_color'] }} !important;
     background-color: {{ $upsell->setting['alpha_t6_atc_btn_bg_color'] }} !important;
@@ -985,7 +985,7 @@ margin: auto !important;
 
 
 .reset-t6.aus-t6-nts-btn{
-   
+
     font-size: 25px !important;
     color: {{ $upsell->setting['alpha_no_thanks_btn_color'] }} !important;
     font-weight: 700 !important;
@@ -1003,6 +1003,8 @@ margin: auto !important;
 //     background-color: #cd780b !important;
 //     color : white !important;
 //     border-radius: 4px !important;
-//     transition: 0.3s ease-in  !important; 
-    
+//     transition: 0.3s ease-in  !important;
+
 // }
+
+@include('upsell_designs.includes.css.pre_purchase.common_css')

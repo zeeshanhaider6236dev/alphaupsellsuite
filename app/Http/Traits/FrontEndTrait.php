@@ -668,7 +668,6 @@ trait FrontEndTrait {
             $q->where('name',request('shop'));
         })->first();
         $currency = config("currency.".$currency->currency.".currency_symbol");
-
         $data = [];
         if($upsell->Tproducts->where('shopify_product_id',request()->product_id)->count()):
             $products   = [];
@@ -685,7 +684,6 @@ trait FrontEndTrait {
                     $lineitems = $shop->userOrders->pluck('order.line_items');
                     $product_ids_to_get = $upsell->Aproducts->pluck('shopify_product_id');
                     $appearOnproducts = $this->getProductsForUpsellGraphql($product_ids_to_get,$shop);
-                    // dd($appearOnproducts);
                     if(count($appearOnproducts['nodes']) > 2):
                         foreach($appearOnproducts['nodes'] as $aproducts):
                             $aproducts['count']=0;
@@ -823,7 +821,7 @@ trait FrontEndTrait {
                 endif;
             endif;
             $upsellId = $upsell->id;
-            // dd($aProductHandle);
+            // dd($upsell->upsellType->name);
             $aProductHandle = array_unique($aProductHandle);
             $data[ $this->commonString($upsell->upsellType->name) ]['handle'] = $aProductHandle;
             $data[ $this->commonString($upsell->upsellType->name) ]['css']  = view('upsell_designs.index_css',compact('upsell','products'))->render();

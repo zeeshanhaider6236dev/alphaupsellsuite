@@ -2,8 +2,7 @@
     (function () {
 
         var shop_currency = "{{ $currency }}";
-
-        console.log('template 3')
+        var proxy_url = "{{ env('PROXY_URL')}}";
         /**
          * ============================================
          * Selectors for Quantity
@@ -256,7 +255,7 @@
                         }
                     ]
                     alpha_upsell_ajax("/cart/add.js",function(response){
-                        alpha_upsell_ajax("/a/alphaUpsell/trackUpsell?id="+upsell.id+"",function(res){
+                        alpha_upsell_ajax(proxy_url+"/trackUpsell?id="+upsell.id+"",function(res){
                             if(res.status == true)
                             {
                                 // location.href = location.origin+"/cart";
@@ -406,7 +405,7 @@
                 }
                 var alpha_data_for_discount = createFormData({'discounts':JSON.stringify(filter_items)});
 
-                alpha_upsell_ajax("/a/alphaUpsell/create/discounts",function(res){
+                alpha_upsell_ajax(proxy_url+"/create/discounts",function(res){
                     if(res.status == true)
                     {
                         target != null ? removeSpinner(target,'Checkout') :'';
@@ -509,7 +508,7 @@
                     alpha_upsell_ajax("/cart/add.js",function(response){
                         if(sale_notification_object != null)
                         {
-                            alpha_upsell_ajax("/a/alphaUpsell/trackUpsell?id="+JSON.parse(sale_notification_object).upsellId+"",function(res){ });
+                            alpha_upsell_ajax(proxy_url+"/trackUpsell?id="+JSON.parse(sale_notification_object).upsellId+"",function(res){ });
                         }
                         var target_product_quantity    = response.items[0].quantity;
                         var target_product_varriant_id = response.items[0].variant_id;
@@ -529,7 +528,7 @@
                         //update View
                         var formData = new FormData();
                             formData.append('id'+[],upsell.id);
-                        alpha_upsell_ajax("/a/alphaUpsell/count/view",function(res){
+                        alpha_upsell_ajax(proxy_url+"/count/view",function(res){
                             if(res.status == true){
                                 // console.log('increased');
                             }

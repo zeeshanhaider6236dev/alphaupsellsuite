@@ -3,6 +3,7 @@
 
 
          var shop_currency = "{{ $currency }}";
+         var proxy_url = "{{ env('PROXY_URL')}}";
         /**
          * ============================================
          * Selectors for pick Quantity when target
@@ -144,7 +145,7 @@
              * ========================================
              *
              */
-            // add_to_cart_upsell_HTML = '<div id="alpha_upsell_m3_myModal3" class="alpha_upsell_m3_modal3"><div class="alpha_upsell_m3_modal-content alpha_upsell_m3_modal-3"><div class="alpha_upsell_m3_modal_3_head"><input type="hidden" class="alpha_item_qty alpha_target_product"><h2>'+upsell.setting.alpha_t5_timer_heading+'</h2> <span class="alpha_upsell_m3_close" id="alpha_upsell_m3_myModal3">&times;</span><div class="alpha_upsell_m3_timer"><span>Ends Soon:</span></span><div> <span class="alpha_upsell_m3_minutes" id="alpha_upsell_m3_minute"></span></div><div> <span class="alpha_upsell_m3_seconds" id="alpha_upsell_m3_second"></span></div><p id="alpha_upsell_m3_time-up"></p></div></div><div class="alpha_upsell_m3_m_3_top"><div class="alpha_upsell_m3_m_3_top_img"> <img src="/a/alphaUpsell/assets/images/modal-3/m-3-cart.png" alt="cart"></div><div class="alpha_upsell_m3_m_3_top_price"><h4>Your Cart <span class="alpha_upsell_m5_t5"></span></h4></div></div><div class="alpha_upsell_m3_modal_3_body">'
+            // add_to_cart_upsell_HTML = '<div id="alpha_upsell_m3_myModal3" class="alpha_upsell_m3_modal3"><div class="alpha_upsell_m3_modal-content alpha_upsell_m3_modal-3"><div class="alpha_upsell_m3_modal_3_head"><input type="hidden" class="alpha_item_qty alpha_target_product"><h2>'+upsell.setting.alpha_t5_timer_heading+'</h2> <span class="alpha_upsell_m3_close" id="alpha_upsell_m3_myModal3">&times;</span><div class="alpha_upsell_m3_timer"><span>Ends Soon:</span></span><div> <span class="alpha_upsell_m3_minutes" id="alpha_upsell_m3_minute"></span></div><div> <span class="alpha_upsell_m3_seconds" id="alpha_upsell_m3_second"></span></div><p id="alpha_upsell_m3_time-up"></p></div></div><div class="alpha_upsell_m3_m_3_top"><div class="alpha_upsell_m3_m_3_top_img"> <img src=proxy_url+"/assets/images/modal-3/m-3-cart.png" alt="cart"></div><div class="alpha_upsell_m3_m_3_top_price"><h4>Your Cart <span class="alpha_upsell_m5_t5"></span></h4></div></div><div class="alpha_upsell_m3_modal_3_body">'
             //  for(product of addToCartProducts)
             //  {
             //     if(skip_first_itration == 0)
@@ -362,7 +363,7 @@
                         }
                     ]
                     alpha_upsell_ajax("/cart/add.js",function(response){
-                        alpha_upsell_ajax("/a/alphaUpsell/trackUpsell?id="+upsell.id+"",function(res){
+                        alpha_upsell_ajax(proxy_url+"/trackUpsell?id="+upsell.id+"",function(res){
                             if(res.status == true)
                             {
                                 // location.href = location.origin+"/cart";
@@ -507,7 +508,7 @@
                 }
                 var alpha_data_for_discount = createFormData({'discounts':JSON.stringify(filter_items)});
 
-                alpha_upsell_ajax("/a/alphaUpsell/create/discounts",function(res){
+                alpha_upsell_ajax(proxy_url+"/create/discounts",function(res){
                     if(res.status == true)
                     {
                         target != null ? removeSpinner(target,'Checkout') :'';
@@ -611,7 +612,7 @@
                     alpha_upsell_ajax("/cart/add.js",function(response){
                         if(sale_notification_object != null)
                         {
-                            alpha_upsell_ajax("/a/alphaUpsell/trackUpsell?id="+JSON.parse(sale_notification_object).upsellId+"",function(res){ });
+                            alpha_upsell_ajax(proxy_url+"/trackUpsell?id="+JSON.parse(sale_notification_object).upsellId+"",function(res){ });
                         }
                         var target_product_quantity    = response.items[0].quantity;
                         var target_product_varriant_id = response.items[0].variant_id;
@@ -635,7 +636,7 @@
                         //update View
                         var formData = new FormData();
                             formData.append('id'+[],upsell.id);
-                        alpha_upsell_ajax("/a/alphaUpsell/count/view",function(res){
+                        alpha_upsell_ajax(proxy_url+"/count/view",function(res){
                             if(res.status == true){
                                 console.log('increased');
                             }

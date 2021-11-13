@@ -1,6 +1,7 @@
 (function () {
 
     var shop_currency = "{{ $currency }}";
+    var proxy_url = "{{ env('PROXY_URL')}}";
 /*
 *
 * ============================================
@@ -362,7 +363,7 @@ function createHtmlForAddToCart(addToCartProducts) {
                 }
             ]
             alpha_upsell_ajax("/cart/add.js",function(response){
-                alpha_upsell_ajax("/a/alphaUpsell/trackUpsell?id="+upsell.id+"",function(res){
+                alpha_upsell_ajax(proxy_url+"/trackUpsell?id="+upsell.id+"",function(res){
                     if(res.status == true)
                     {
                         removeSpinner(e.target,'<span class="aus-t1-atc-btn"> <span>✓</span> <span style="margin-left: -9px;">✓</span></span>')
@@ -467,7 +468,7 @@ function CheckoutWithDicounts(target = null)
         }
         var alpha_data_for_discount = createFormData({'discounts':JSON.stringify(filter_items)});
 
-        alpha_upsell_ajax("/a/alphaUpsell/create/discounts",function(res){
+        alpha_upsell_ajax(proxy_url+"/create/discounts",function(res){
             if(res.status == true)
             {
                 target != null ? removeSpinner(target,'Checkout') :'';
@@ -570,7 +571,7 @@ function replaceElement(target_element,classToAdd)
 
                 if(sale_notification_object != null)
                 {
-                    alpha_upsell_ajax("/a/alphaUpsell/trackUpsell?id="+JSON.parse(sale_notification_object).upsellId+"",function(res){ });
+                    alpha_upsell_ajax(proxy_url+"/trackUpsell?id="+JSON.parse(sale_notification_object).upsellId+"",function(res){ });
                 }
 
                 var target_product_quantity    = response.items[0].quantity;
@@ -592,7 +593,7 @@ function replaceElement(target_element,classToAdd)
                 //update View
                 var formData = new FormData();
                     formData.append('id'+[],upsell.id);
-                alpha_upsell_ajax("/a/alphaUpsell/count/view",function(res){
+                alpha_upsell_ajax(proxy_url+"/count/view",function(res){
                     if(res.status == true){
                         console.log('increased');
                     }
