@@ -91,7 +91,7 @@
         {
             width:95%;
         }
-        
+
         /* Template 2 styling */
 
         .t2_deal_heading
@@ -220,14 +220,14 @@
                 @if (!$upsell->setting['alpha_t2_timer_limit'])
                     .m_3_time
                     {
-                        display: none;   
+                        display: none;
                     }
                 @endif
                 .modal_6_head h2
                 {
-                   font-family:{{ $upsell->setting['alpha_t2_heading_font_family']  }} !important; 
-                   font-size:{{ $upsell->setting['alpha_t2_heading_font_size']  }}px !important; 
-                   color:{{ $upsell->setting['alpha_t2_heading_color']  }} !important; 
+                   font-family:{{ $upsell->setting['alpha_t2_heading_font_family']  }} !important;
+                   font-size:{{ $upsell->setting['alpha_t2_heading_font_size']  }}px !important;
+                   color:{{ $upsell->setting['alpha_t2_heading_color']  }} !important;
                 }
                 .modal_6_head
                 {
@@ -244,7 +244,7 @@
                 }
                 .m6_timer h2
                 {
-                    font-family:{{ $upsell->setting['t2_heading_font_family']  }} !important; 
+                    font-family:{{ $upsell->setting['t2_heading_font_family']  }} !important;
                     font-size:{{ $upsell->setting['t2_heading_font_size']  }}px !important;
                     color:{{ $upsell->setting['alpha_t2_deal_heading_color']  }} !important;
                 }
@@ -254,7 +254,7 @@
                 }
                 .m_3_time label
                 {
-                    font-family:{{ $upsell->setting['t2_timer_text_font_family']  }} !important; 
+                    font-family:{{ $upsell->setting['t2_timer_text_font_family']  }} !important;
                     font-size:{{ $upsell->setting['t2_timer_text_font_size']  }}px !important;
                     color:{{ $upsell->setting['t2_timer_heading_color']  }} !important;
                 }
@@ -293,12 +293,12 @@
                 @if (!$upsell->setting['alpha_t3_timer'])
                     .m_2_time_shoe
                     {
-                        display: none;   
+                        display: none;
                     }
                 @endif
                 .alpha_t3_heading
                 {
-                    font-family:{{ $upsell->setting['alpha_t3_heading_font_family']  }} !important; 
+                    font-family:{{ $upsell->setting['alpha_t3_heading_font_family']  }} !important;
                     font-size:{{ $upsell->setting['alpha_t3_heading_font_size']  }}px !important;
                     color:{{ $upsell->setting['alpha_t3_heading_color']  }} !important;
                 }
@@ -369,7 +369,7 @@
                 @if (!$upsell->setting['alpha_t4_time_limit_toggler'])
                 .b_timer4
                 {
-                    display: none;   
+                    display: none;
                 }
                 @endif
                 .b_timer4 h4
@@ -380,70 +380,70 @@
                 }
                 .timer4 input
                 {
-                   color:{{ $upsell->setting['alpha_t4_timer_color']  }} !important;  
-                   background-color:{{ $upsell->setting['alpha_t4_timer_bg_color']  }} !important;  
+                   color:{{ $upsell->setting['alpha_t4_timer_color']  }} !important;
+                   background-color:{{ $upsell->setting['alpha_t4_timer_bg_color']  }} !important;
                 }
                 .alpha_t4_cross_icon
                 {
-                   color:{{ $upsell->setting['alpha_t4_cross_icon_color']  }} !important;  
-                   background-color:{{ $upsell->setting['alpha_t4_cross_icon_bg_color']  }} !important;  
+                   color:{{ $upsell->setting['alpha_t4_cross_icon_color']  }} !important;
+                   background-color:{{ $upsell->setting['alpha_t4_cross_icon_bg_color']  }} !important;
                 }
                 .m4_top
                 {
-                   background-color:{{ $upsell->setting['alpha_t4_cart_product_bg_color']  }} !important;  
+                   background-color:{{ $upsell->setting['alpha_t4_cart_product_bg_color']  }} !important;
                 }
                 .m4_t1 i
                 {
-                   background-color:{{ $upsell->setting['alpha_t4_cart_product_icon_bg_color']  }} !important;  
+                   background-color:{{ $upsell->setting['alpha_t4_cart_product_icon_bg_color']  }} !important;
                 }
                 .m4_t3
                 {
-                   color:{{ $upsell->setting['alpha_t4_cart_product_price_color']  }} !important;  
+                   color:{{ $upsell->setting['alpha_t4_cart_product_price_color']  }} !important;
                 }
                 .m4_t4
                 {
-                   color:{{ $upsell->setting['alpha_t4_checkout_btn_color']  }} !important;  
+                   color:{{ $upsell->setting['alpha_t4_checkout_btn_color']  }} !important;
                    {{-- color:{{ $upsell->setting['alpha_t4_cart_product_checkout_btn_color']  }} !important;   --}}
                 }
                 .m4_body h2
                 {
-                   font-family:{{ $upsell->setting['alpha_t4_title_heading_font_family']  }} !important;  
-                   font-size:{{ $upsell->setting['alpha_t4_title_heading_font_size']  }}px !important;  
-                   color:{{ $upsell->setting['alpha_t4_title_heading_color']  }} !important;  
+                   font-family:{{ $upsell->setting['alpha_t4_title_heading_font_family']  }} !important;
+                   font-size:{{ $upsell->setting['alpha_t4_title_heading_font_size']  }}px !important;
+                   color:{{ $upsell->setting['alpha_t4_title_heading_color']  }} !important;
                 }
                 .m_4_img_detail input
                 {
-                   background-color:{{ $upsell->setting['alpha_t4_atc_btn_bg_color']  }} !important;  
-                   color:{{ $upsell->setting['alpha_t4_atc_btn_color']  }} !important; 
-                   border: none; 
+                   background-color:{{ $upsell->setting['alpha_t4_atc_btn_bg_color']  }} !important;
+                   color:{{ $upsell->setting['alpha_t4_atc_btn_color']  }} !important;
+                   border: none;
                 }
                 .m_4_img_detail p
                 {
-                   color:{{ $upsell->setting['alpha_t4_price_color']  }} !important;  
+                   color:{{ $upsell->setting['alpha_t4_price_color']  }} !important;
                 }
                 .m_4_img_detail p span
                 {
-                   background-color:{{ $upsell->setting['alpha_t4_discount_price_bg_color']  }} !important;  
-                   color:{{ $upsell->setting['alpha_t4_discount_price_color']  }} !important;  
+                   background-color:{{ $upsell->setting['alpha_t4_discount_price_bg_color']  }} !important;
+                   color:{{ $upsell->setting['alpha_t4_discount_price_color']  }} !important;
                 }
                 .m4_check
                 {
-                   background-color:{{ $upsell->setting['alpha_t4_checkout_btn_bg_color']  }} !important;  
-                   color:{{ $upsell->setting['alpha_t4_checkout_btn_color']  }} !important; 
-                   border-color:{{ $upsell->setting['alpha_t4_checkout_btn_border_color']  }} !important;; 
+                   background-color:{{ $upsell->setting['alpha_t4_checkout_btn_bg_color']  }} !important;
+                   color:{{ $upsell->setting['alpha_t4_checkout_btn_color']  }} !important;
+                   border-color:{{ $upsell->setting['alpha_t4_checkout_btn_border_color']  }} !important;;
                 }
                 .t4_thanks
                 {
-                   background-color:{{ $upsell->setting['alpha_t4_no_thanks_btn_bg_color']  }} !important;  
-                   color:{{ $upsell->setting['alpha_t4_no_thanks_btn_color']  }} !important; 
-                   border-color:{{ $upsell->setting['alpha_t4_no_thanks_btn_border_color']  }} !important;; 
+                   background-color:{{ $upsell->setting['alpha_t4_no_thanks_btn_bg_color']  }} !important;
+                   color:{{ $upsell->setting['alpha_t4_no_thanks_btn_color']  }} !important;
+                   border-color:{{ $upsell->setting['alpha_t4_no_thanks_btn_border_color']  }} !important;;
                 }
             @endif
             @if ($upsell->setting['upsell_template_type'] == 5)
                 @if (!$upsell->setting['alpha_t5_time_limit_toggler'])
                     .timer3
                     {
-                        display: none;   
+                        display: none;
                     }
                 @endif
                 .b_timer3 h4
@@ -454,26 +454,26 @@
                 }
                 .timer3 input
                 {
-                   color:{{ $upsell->setting['alpha_t5_timer_color']  }} !important;  
-                   background-color:{{ $upsell->setting['alpha_t5_timer_bg_color']  }} !important;  
+                   color:{{ $upsell->setting['alpha_t5_timer_color']  }} !important;
+                   background-color:{{ $upsell->setting['alpha_t5_timer_bg_color']  }} !important;
                 }
                 .t5_cross_icon
                 {
-                   color:{{ $upsell->setting['alpha_t5_cross_icon_color']  }} !important;  
+                   color:{{ $upsell->setting['alpha_t5_cross_icon_color']  }} !important;
                 }
                 .m_3_top
                 {
-                   background-color:{{ $upsell->setting['alpha_t5_cart_product_bg_color']  }} !important;  
+                   background-color:{{ $upsell->setting['alpha_t5_cart_product_bg_color']  }} !important;
                 }
                 .m_3_top_price h4 span
                 {
-                   color:{{ $upsell->setting['alpha_t5_cart_produt_price_color']  }} !important;  
+                   color:{{ $upsell->setting['alpha_t5_cart_produt_price_color']  }} !important;
                 }
                 .alpha_t5_atc_btn
                 {
-                   background-color:{{ $upsell->setting['alpha_t5_atc_btn_bg_color']  }} !important;  
-                   border-color:{{ $upsell->setting['alpha_t5_atc_btn_border_color']  }} !important;  
-                   color:{{ $upsell->setting['alpha_t5_atc_btn_color']  }} !important;  
+                   background-color:{{ $upsell->setting['alpha_t5_atc_btn_bg_color']  }} !important;
+                   border-color:{{ $upsell->setting['alpha_t5_atc_btn_border_color']  }} !important;
+                   color:{{ $upsell->setting['alpha_t5_atc_btn_color']  }} !important;
                 }
                 .m_3_name p
                 {
@@ -486,15 +486,15 @@
                 }
                 .t5_checkout_btn
                 {
-                   background-color:{{ $upsell->setting['alpha_t5_checkout_btn_bg_color']  }} !important;  
-                   color:{{ $upsell->setting['alpha_t5_checkout_btn_color']  }} !important; 
-                   border-color:{{ $upsell->setting['alpha_t5_checkout_btn_border_color']  }} !important;; 
+                   background-color:{{ $upsell->setting['alpha_t5_checkout_btn_bg_color']  }} !important;
+                   color:{{ $upsell->setting['alpha_t5_checkout_btn_color']  }} !important;
+                   border-color:{{ $upsell->setting['alpha_t5_checkout_btn_border_color']  }} !important;;
                 }
                 .t5_no_thanks_btn
                 {
-                   background-color:{{ $upsell->setting['alpha_t5_no_thanks_btn_bg_color']  }} !important;  
-                   color:{{ $upsell->setting['alpha_t5_no_thanks_btn_color']  }} !important; 
-                   border-color:{{ $upsell->setting['alpha_t5_no_thanks_btn_border_color']  }} !important;; 
+                   background-color:{{ $upsell->setting['alpha_t5_no_thanks_btn_bg_color']  }} !important;
+                   color:{{ $upsell->setting['alpha_t5_no_thanks_btn_color']  }} !important;
+                   border-color:{{ $upsell->setting['alpha_t5_no_thanks_btn_border_color']  }} !important;;
                 }
             @endif
             @if ($upsell->setting['upsell_template_type'] == 6)
@@ -538,18 +538,18 @@
                 {
                    background-color:{{ $upsell->setting['alpha_t6_atc_btn_bg_color']  }} !important;
                    border-color:{{ $upsell->setting['alpha_t6_btn_border_color']  }} !important;
-                   color:{{ $upsell->setting['alpha_t6_btn_color']  }} !important; 
+                   color:{{ $upsell->setting['alpha_t6_btn_color']  }} !important;
                 }
                 .m5_thanks
                 {
                    background-color:{{ $upsell->setting['alpha_no_thanks_btn_bg_color']  }} !important;
-                   color:{{ $upsell->setting['alpha_no_thanks_btn_color']  }} !important; 
+                   color:{{ $upsell->setting['alpha_no_thanks_btn_color']  }} !important;
                    border-color:{{ $upsell->setting['alpha_no_thanks_btn_border_color']  }} !important;
                 }
                 .item_detail input
                 {
                    background-color:{{ $upsell->setting['alpha_t6_checkout_btn_bg_color']  }} !important;
-                   color:{{ $upsell->setting['alpha_t6_checkout_btn_color']  }} !important; 
+                   color:{{ $upsell->setting['alpha_t6_checkout_btn_color']  }} !important;
                    border-color:{{ $upsell->setting['alpha_t6_checkout_btn_border_color']  }} !important;
                 }
 
@@ -574,7 +574,7 @@
             });
 
             /** ----------Model 1 JavaScript Start---------- */
-            
+
             $('input[name="add_to_cart_heading"]').keyup(function(e){
                 $('.add_to_cart_heading_m_1').text($(this).val())
             });
@@ -692,7 +692,7 @@
                 setProperty('.m_2_btn',"border-color",`${$(this).val()}`);
             });
 
-        
+
         /** ----------------Model 1 JavaScript End------------------------- */
         /** ----------------Model 2 JavaScript start------------------------  */
 
@@ -823,7 +823,7 @@
             $('input[name="alpha_t2_no_thanks_btn_border_color"]').change(function(){
                 setProperty('.no_thanks_btn',"border-color",`${$(this).val()}`);
             });
-            
+
         /** ----------------Model 2 JavaScript End------------------------ */
         /** ----------------Model 3 JavaScript start------------------------ */
             $('input[name="alpha_t3_heading"]').keyup(function(){
@@ -1270,7 +1270,7 @@
         /** ----------Decalre variable id and upsell_add_rule for updating the upsell after saving--------- */
             var id = '';
             var upsell_add_route = '';
-        /** 
+        /**
         *    ------After clicking the save_setting button save upsell if it is not created-------
         *    ------if upsell created change the route for update ------------------
         */
@@ -1295,7 +1295,7 @@
                     }
                 },'POST',$(".upsellForm, "+template_to_select+"").serialize());
             });
-        @else            
+        @else
             $('.save_setting').click(function(){
                 let element = $(this);
                 addSpinner($(element));
@@ -1339,6 +1339,9 @@
                     if(response.status){
                         $(element).empty().html('update').prop('disabled',false);
                     }
+                    else if(response.errors){
+                        $(element).empty().html('update').prop('disabled',false);
+                    }
                 },'POST',$(".upsellForm, "+template_to_select+"").serialize());
 
             });
@@ -1355,6 +1358,7 @@
                 }
                 let template_to_select = ".template-"+$('.template-to-select').val();
                 ajaxRequest(upsell_add_route,function(response){
+                    console.log(response)
                     if(response.status){
                         $(element).empty().html('update').prop('disabled',false);
                         id = response.upsell_id;
@@ -1382,7 +1386,7 @@
         $('.ppu-auto-button').on('click',function(){
             console.log(flag)
             var html = `<div class="box_shado mt" style="display: flex; align-items: center;"><div class="img_box col-md-2" style="width: 100%;"> <img src="https://i.ibb.co/zP4drmC/Pngtree-artificial-intelligence-chip-icon-for-4864546.png" alt="error loading image "></div><div><span>Our AI analysis the previous purchases in your store through data mining algorithm & produce memory graph with recommended products that are usually added.</span></div><div class="img_btn col-md-2"><button id="delete_button_auto"type="button" class="delete float-right">Delete</button></div></div>`
-            
+
             if(!flag){
                 $("#auto-collapse-box").css('display','block')
                 $("#auto-collapse-box").html(html);
