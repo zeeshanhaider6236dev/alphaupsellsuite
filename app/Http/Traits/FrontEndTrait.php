@@ -40,7 +40,7 @@ trait FrontEndTrait {
                 $q->whereHas('upsellType',function($q2){
                     $q2->where('name','!=',config('upsell.strings.postPurchaseUpsellName'));
                     $q2->when(!request()->has('product_id'),function($q3){
-                        $q3->whereNotIn('name', config('upsell.strings.upsellTypeNamesToMatch'));
+                        $q3->whereNotIn('name', config('upsell.strings.getPreUpsellIncart'));
                     });
                 });
                 $q->with(['upsellType' => function($q2){
@@ -158,7 +158,54 @@ trait FrontEndTrait {
                     endif;
                     $checkout_script = view('upsell_designs.includes.js.pre_purchase.global_js.checkout_replace', compact('addToCartFlag'))->render();
                 else:
-                    $checkout_script = false;
+                    $add_to_cart_upsell =   [];
+                    $loop_break_flag    = false;
+
+                    foreach ($shop->upsells as $key => $upsell) :
+                        if(request()->has('product_ids')):
+                            foreach(request()->product_ids as $product_id):
+                                if($upsell->Tproducts->where('shopify_product_id',$product_id)->count()):
+                                    if($upsell->upsellType->name == config('upsell.strings.upsellTypeNamesToMatch')[1]):
+                                        $add_to_cart_upsell[] = $upsell;
+                                    endif;
+                                // elseif($upsell->Tcollections->count()):
+                                //     $tCollectionIds = $upsell->Tcollections->pluck('shopify_collection_id');
+                                //     foreach ($tCollectionIds as $value) :
+                                //         if(in_array($value,request()->product_collection_ids)):
+                                //             if($upsell->upsellType->name == config('upsell.strings.upsellTypeNamesToMatch')[0]):
+                                //                 $fbt_upsells[] = $upsell;
+                                //             elseif($upsell->upsellType->name == config('upsell.strings.upsellTypeNamesToMatch')[1]):
+                                //                 $add_to_cart_upsell[] = $upsell;
+                                //             elseif($upsell->upsellType->name == config('upsell.strings.upsellTypeNamesToMatch')[2]):
+                                //                 $volume_discount_upsell[] = $upsell;
+                                //             endif;
+                                //         endif;
+                                //     endforeach;
+                                // elseif($upsell->Ttags->count()):
+                                //     $tTagIds = $upsell->Ttags->pluck('shopify_tag_id');
+                                //     foreach ($tTagIds as $value):
+                                //         if(request()->product_tags):
+                                //             if(in_array($value,request()->product_tags)):
+                                //                 if($upsell->upsellType->name == config('upsell.strings.upsellTypeNamesToMatch')[0]):
+                                //                     $fbt_upsells[] = $upsell;
+                                //                 elseif($upsell->upsellType->name == config('upsell.strings.upsellTypeNamesToMatch')[1]):
+                                //                     $add_to_cart_upsell[] = $upsell;
+                                //                 elseif($upsell->upsellType->name == config('upsell.strings.upsellTypeNamesToMatch')[2]):
+                                //                     $volume_discount_upsell[] = $upsell;
+                                //                 endif;
+                                //             endif;
+                                //         endif;
+                                //     endforeach;
+                                endif;
+                            endforeach;
+                        endif;
+                    endforeach;
+                    if(count($add_to_cart_upsell)):
+                        $addToCartFlag = true;
+                        $checkout_script = view('upsell_designs.includes.js.pre_purchase.global_js.checkout_replace', compact('addToCartFlag'))->render();
+                    else:
+                        $checkout_script = false;
+                    endif;
                 endif;
                 return response()->json(['currency' => $currency,'status' => true,'upsells' => $data,'upsell_handles'=> $upsells_handle,'checkOutJs' => $checkout_script]);
             endif;

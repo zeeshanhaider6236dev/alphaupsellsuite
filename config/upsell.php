@@ -457,6 +457,7 @@ return [
             ],
         ],
         'upsellTypeNamesToMatch' => explode(',',env('UPSELLTYPE_NAMES_TO_MATCH')),
+        'getPreUpsellIncart'     => explode(',',env('GET_PRE_UPSELL_INCART')),
         'postPurchaseUpsellName' => env('UPSELLTYPE_POST_PURCHASE'),
         'NativePostPurchaseUpsellName' => env('UPSELLTYPE_NATIVE_POST_PURCHASE'),
         'inCartUpsellName'       => env('UPSELLTYPE_IN_CART'),
