@@ -63,7 +63,6 @@ class OrdersCreateJob implements ShouldQueue
      */
     public function handle()
     {
-        // info(json_encode($this->data));
         $this->order = Order::where('shopify_order_id',$this->data->id)->first();
         if(!$this->order):
             $this->user = User::where('name', $this->shopDomain)->whereNotNull('password')->first();
@@ -74,15 +73,15 @@ class OrdersCreateJob implements ShouldQueue
                 'shopify_updated_at' => Carbon::parse($this->data->updated_at),
             ]);
         endif;
-        
+
         /**
-         * 
+         *
          * =============================================================
          * Upsell Tracking For Post Purchase Upsell and Volume Discount
          * =============================================================
-         * 
+         *
          */
-        
+
         if(!$this->order):
             if(count($this->data->discount_codes)):
                 // info($this->data->line_items[0]->quantity);
@@ -133,11 +132,11 @@ class OrdersCreateJob implements ShouldQueue
                 endif;
             endif;
             /**
-             * 
+             *
              * ===============================================
              * upsell Tracking For FBT, InCart etc
              * ===============================================
-             * 
+             *
              */
             $upsells_data1 = [];
             foreach($this->data->line_items as $lineItem):
@@ -146,7 +145,7 @@ class OrdersCreateJob implements ShouldQueue
                         foreach($lineItem->properties as $key => $value):
                             if($lineItem->properties[$key]->name == "_Sale_notification" || $lineItem->properties[$key]->name == "_alpha_upsell_id" || $lineItem->properties[$key]->name == "_alpha_atc_upsell_id"):
                                 $this->upsellId = $lineItem->properties[$key]->value;
-                                info($this->upsellId);
+                                // info($this->upsellId);
                             endif;
                         endforeach;
                     else:
@@ -158,7 +157,9 @@ class OrdersCreateJob implements ShouldQueue
                     endif;
                     // $this->upsellId  = $lineItem->properties[0]->value;
                     $this->revenue   = $lineItem->price * $lineItem->quantity;
+                    // info($this->revenue);
                     if(!isset($upsell_data[$this->upsellId])):
+                        // info($upsell_data);
                         $upsell_data[$this->upsellId] = ['upsell_id' => $this->upsellId, 'orders' => 1, 'revenue' => $this->revenue];
                     else:
                         $this->revenue += $upsell_data[$this->upsellId]['revenue'];
@@ -180,7 +181,7 @@ class OrdersCreateJob implements ShouldQueue
                 if(isset($upsell_data) && count($upsell_data))
                 {
                     $upsells_data1[0]  = $upsell_data;
-                    info($upsells_data1);   
+                    // info($upsells_data1);
                 }
             endforeach;
             foreach($upsells_data1[0] as $upsell):
@@ -189,7 +190,7 @@ class OrdersCreateJob implements ShouldQueue
                 $this->alphaUpsellSells($this->upsellId);
                 $this->alphaUpsellTransections($this->upsellId ,$this->revenue);
             endforeach;
-        endif;    
+        endif;
     }
 
     /*
@@ -199,7 +200,7 @@ class OrdersCreateJob implements ShouldQueue
      * =============================================================
      *
     */
-    
+
     public function alphaUpsellSells($upsell_id)
     {
         $upsell_data  = Upsell::where('id',$upsell_id)->first();
@@ -231,7 +232,7 @@ class OrdersCreateJob implements ShouldQueue
      * =============================================================
      *
     */
-    
+
     public function alphaUpsellTransections($upsell_id,$revenue)
     {
         $upsell_data  = Upsell::where('id',$upsell_id)->first();

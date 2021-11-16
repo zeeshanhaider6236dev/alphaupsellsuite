@@ -263,7 +263,7 @@ class CheckoutController extends Controller
             // // $signature = hashHmacSHA256($encodedContent);
             // $signature = hash_hmac('sha256', json_encode($encodedContent), $API_secret);
             $token = ["token"=>$token];
-            info($token);
+            // info($token);
             return json_encode($token);
 
         endif;

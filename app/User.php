@@ -67,8 +67,8 @@ class User extends Authenticatable implements IShopModel
             ]);
             $shop->shopify_freemium = false;
             $shop->save();
-            info('success');
-       });       
+            // info('success');
+       });
     }
 
 
@@ -76,17 +76,17 @@ class User extends Authenticatable implements IShopModel
     {
         return $this->hasOne(Setting::class);
     }
-    
+
     public function shop_contacts()
     {
         return $this->hasMany(ContactUs::class);
     }
-    
+
     public function currentCharge()
     {
         return $this->hasOne(Charge::class)->where('status','ACTIVE');
     }
-    
+
     public function products()
     {
         return $this->hasMany(ShopProduct::class);
