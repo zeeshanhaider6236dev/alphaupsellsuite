@@ -7,16 +7,16 @@ use App\User;
 class DiscountController extends Controller
 {
 	/**
-     * 
+     *
      * ---------------------------------------------
      * Discount Create for add to cart upsell
      * ---------------------------------------------
-     * 
+     *
      */
     public function createDiscounts(){
         $products = json_decode(request('discounts'));
-        // dd($products);
-        $line_items = []; 
+        // dd(json_encode($products));
+        $line_items = [];
         foreach ($products as $key => $value):
             $variant_id = $value->variant_id;
             if(isset($value->upsell_id->_alpha_atc_upsell_id)):
@@ -71,7 +71,7 @@ class DiscountController extends Controller
 	        	endif;
             	$shop       = $value->shop;
                 $user 	    = User::where('name',$shop)->first();
-                if(isset($alphaKeyName)):
+                if(isset($alphaKeyName) && isset($value->upsell_id->_alpha_upsell_id)):
                 	$lineItem = [
 			      	"variant_id"=> $variant_id,
 			        "quantity"=> $value->quantity,
@@ -91,7 +91,6 @@ class DiscountController extends Controller
 			    $line_items[] = $lineItem;
             endif;
         endforeach;
-        // dd($line_items);
         $data = [
         	"draft_order" => [
         		"line_items" => $line_items
@@ -99,7 +98,7 @@ class DiscountController extends Controller
         ];
         // dd($data);
         $get_product = $user->api()->rest('POST','/admin/api/2021-04/draft_orders.json',$data);
-        info(json_encode($get_product['body']));
+        // info(json_encode($get_product['body']));
         if($get_product['status'] == 201):
         	return response()->json(['status' =>true , "checkout_url" => $get_product['body']['draft_order']['invoice_url'] ]);
         endif;

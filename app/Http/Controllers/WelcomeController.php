@@ -396,7 +396,7 @@ class WelcomeController extends Controller
 
     public function test(Request $request)
     {
-        info("webhook working fine");
+        // info("webhook working fine");
         // return abort('404');
         // 186169229474
 

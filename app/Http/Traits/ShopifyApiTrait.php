@@ -10,8 +10,6 @@ trait ShopifyApiTrait {
 	{
 		$this->shop($shop);
 		$response =  $this->shop->api()->rest($method, $this->makeUrl($api , $api_get_fields),$api_post_fields);
-		// info(json_encode($response['body']));
-		// info(json_encode($api_post_fields));
 		if($response['errors'] === true):
 			return $response['errors'];
 		endif;
@@ -55,7 +53,7 @@ trait ShopifyApiTrait {
 		endif;
 		return $response;
 	}
-	
+
 	public function getRequiredFields($api_required_fields,$response)
 	{
 		foreach ($api_required_fields as $key => $value) {

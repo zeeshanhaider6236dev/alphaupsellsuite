@@ -60,7 +60,7 @@ class OrdersUpdateJob implements ShouldQueue
                 endif;
             endif;
         endforeach;
-        if($item_purchased_by_alphaUpsell):
+        if(isset($item_purchased_by_alphaUpsell)):
             $item_purchased_by_upsell_price = ($item_purchased_by_alphaUpsell->price * $item_purchased_by_alphaUpsell->quantity) - $item_purchased_by_alphaUpsell->total_discount;
         endif;
         $upsell = Upsell::where('id',$last_customer_order->upsell_id)->first();
@@ -105,7 +105,7 @@ class OrdersUpdateJob implements ShouldQueue
                 'value' => $value,
                 'upsell_created_at' => today()->format('Y-m-d'),
             ]);
-            return response()->json(['status' =>true ]);  
+            return response()->json(['status' =>true ]);
         endif;
     }
 }
