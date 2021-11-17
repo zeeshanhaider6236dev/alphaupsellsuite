@@ -16,7 +16,6 @@ var product_image           = appear_on_product.image.src;
 var title                   = (appear_on_product.title).toString();
 var product_title           = alphaProductShortName(title,30);
 var product_variants        = appear_on_product.variants;
-
         var in_cart_Html = '<div class="alpha_upsell_in_page_custom"><div class="alpha_upsell_in_page_design_inpage"><div class="alpha_upsell_in_page_p_upsell"><div class="alpha_upsell_in_page_timer_title"><p>'+incart_title+'</p></div><div class="alpha_upsell_in_page_timer"><input type="text" readonly class="minutes"><input type="text"  readonly class="seconds"></div><div class="alpha_upsell_in_page_in_page_product"><div class="alpha_upsell_in_page_upsell_img"><img src="'+product_image+'" alt="cream"></div>'
         if(show_product_title != 0){
             in_cart_Html+='<div class="alpha_upsell_in_page_upsell_title"><h4>'+product_title+'</h4>'
@@ -24,15 +23,15 @@ var product_variants        = appear_on_product.variants;
         // console.log(product_variants[0].title)
         if(product_variants[0].title != "Default Title")
         {
-           in_cart_Html+='<select name="product_variants" class="product_variants">'
-            for(product_variant of product_variants){
-                var variant_id            = product_variant.id;
-                var variant_title         = product_variant.title;
-                var variant_price         = product_variant.price;
-                var variant_compare_price = product_variant.compare_at_price;
-                if(show_variant_selection != 0){
-                    in_cart_Html+='<option value="'+variant_id+'">'+variant_title+'</option>'
-                }
+            if(show_variant_selection != 0){
+                in_cart_Html+='<select name="product_variants" class="product_variants">'
+                 for(product_variant of product_variants){
+                     var variant_id            = product_variant.id;
+                     var variant_title         = product_variant.title;
+                     var variant_price         = product_variant.price;
+                     var variant_compare_price = product_variant.compare_at_price;
+                     in_cart_Html+='<option value="'+variant_id+'">'+variant_title+'</option>'
+                 }
             }
         }
         else
@@ -44,7 +43,7 @@ var product_variants        = appear_on_product.variants;
         }
 
         in_cart_Html+='<input type="hidden" id="alphaInCart_variant_id" value="'+product_variants[0].id+'"></select><p><span id="price" style="text-decoration:none!important;">'+alpha_upsell_currency_symbol+''+''+product_variants[0].price+'</span><span id="product_compare_price">'
-        if(product_variants[0].compare_at_price != 0){
+        if(show_compare_price != 0 && product_variants[0].compare_at_price != 0){
             in_cart_Html+=alpha_upsell_currency_symbol+''+''+product_variants[0].compare_at_price
          }
         in_cart_Html+='</span></p><input type="button" value="'+cart_button_text+'" class="alpha_upsell_in_page_upsell_btn"></div></div></div></div>'
@@ -348,7 +347,7 @@ var product_variants        = appear_on_product.variants;
                     // document.querySelector('#alpha_variant_id').value =  _variant_id;
                     var add_to_cart_variant = _variant_id;
                     document.querySelector("#product_compare_price").innerText = ' ';
-                    if(_variants[appear_on_products].compare_at_price > _variants[appear_on_products].price){
+                    if(show_compare_price!=0 && _variants[appear_on_products].compare_at_price > _variants[appear_on_products].price){
                         document.querySelector("#product_compare_price").innerText = alpha_upsell_currency_symbol+_variants[appear_on_products].compare_at_price;
 
                     }
