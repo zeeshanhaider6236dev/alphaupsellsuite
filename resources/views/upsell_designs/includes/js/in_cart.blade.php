@@ -203,7 +203,6 @@ var product_variants        = appear_on_product.variants;
         'form[action="/cart"]',
         ];
 
-
         //Incart upsell design added in cart page
         for(var i=0; i<cart_page_selectors.length; i++){
 
@@ -265,11 +264,6 @@ var product_variants        = appear_on_product.variants;
             }
             return parents;
         };
-
-
-
-
-
     //Incart upsell countdown timer
         var time = timer_duration*60;
         var tmp=time;
