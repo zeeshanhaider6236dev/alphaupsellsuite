@@ -10,6 +10,7 @@
      *
      */
 
+
     var sale_notification_object = sessionStorage.getItem('sale_notification_object')
 
 
@@ -34,7 +35,6 @@
             createHtmlForFbt(fbtProducts);
         }
     });
-
     function createHtmlForFbt(fbtProducts){
         /**
          *

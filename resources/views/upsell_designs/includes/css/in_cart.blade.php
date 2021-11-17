@@ -154,8 +154,8 @@
     margin-right: 10px !important;
 }
 .alpha_upsell_in_page_upsell_btn {
-    background: {{$upsell->setting['button_background_color']}} !important;
-    border: {{$upsell->setting['button_border_color']}} !important;
+    background: {{$upsell->setting['button_background_color'] }} !important;
+    border: 1px solid {{$upsell->setting['button_border_color'] }} !important;
     color: {{$upsell->setting['button_text_color']}} !important;
     font-size: 14px !important;
     padding: 5px 10px !important;
