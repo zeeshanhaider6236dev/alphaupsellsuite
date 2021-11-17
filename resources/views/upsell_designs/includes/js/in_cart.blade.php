@@ -2,6 +2,8 @@
 
 var app_URL = "{{ env('APP_URL') }}"
 
+var getUpsell = {!! $upsell !!}
+console.log(getUpsell.setting);
 
 var currentShowingUpsellId  = "{{ $upsell_id }}";
 var appear_on_handle        = "{{ $aProductHandle[0] }}";
@@ -16,7 +18,11 @@ var product_image           = appear_on_product.image.src;
 var title                   = (appear_on_product.title).toString();
 var product_title           = alphaProductShortName(title,30);
 var product_variants        = appear_on_product.variants;
-        var in_cart_Html = '<div class="alpha_upsell_in_page_custom"><div class="alpha_upsell_in_page_design_inpage"><div class="alpha_upsell_in_page_p_upsell"><div class="alpha_upsell_in_page_timer_title"><p>'+incart_title+'</p></div><div class="alpha_upsell_in_page_timer"><input type="text" readonly class="minutes"><input type="text"  readonly class="seconds"></div><div class="alpha_upsell_in_page_in_page_product"><div class="alpha_upsell_in_page_upsell_img"><img src="'+product_image+'" alt="cream"></div>'
+        var in_cart_Html = '<div class="alpha_upsell_in_page_custom"><div class="alpha_upsell_in_page_design_inpage"><div class="alpha_upsell_in_page_p_upsell"><div class="alpha_upsell_in_page_timer_title"><p>'+incart_title+'</p></div>'
+        if(getUpsell.setting.count_down_timer != 0){
+            in_cart_Html += '<div class="alpha_upsell_in_page_timer"><input type="text" readonly class="minutes"><input type="text"  readonly class="seconds"></div>'
+        }
+        in_cart_Html += '<div class="alpha_upsell_in_page_in_page_product"><div class="alpha_upsell_in_page_upsell_img"><img src="'+product_image+'" alt="cream"></div>'
         if(show_product_title != 0){
             in_cart_Html+='<div class="alpha_upsell_in_page_upsell_title"><h4>'+product_title+'</h4>'
         }
