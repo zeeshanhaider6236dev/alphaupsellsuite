@@ -34,6 +34,7 @@
         color: {{ $heading_color }}!important;
         text-align: {{ $heading_align }} !important;
     }
+
     .incart_timer{
         @php
             if(isset($upsell)):
@@ -62,7 +63,7 @@
         @endphp
         color: {{ $product_title_color }}!important;
     }
-    .upsell_background_color{
+    .p_upsell.upsell_background_color{
         @php
             if(isset($upsell)):
                 $upsell_background_color = $upsell['setting']['upsell_background_color'];
@@ -152,11 +153,14 @@
     }
     span.aus_timer_duration{
         background-color: {{ isset($upsell) ? $upsell['setting']['timer_text_bg_color'] : $setting['timer_text_bg_color'] }};
-        color: {{ isset($upsell) ? $upsell['setting']['timer_text_color'] : $setting['timer_text_color'] }}; 
+        color: {{ isset($upsell) ? $upsell['setting']['timer_text_color'] : $setting['timer_text_color'] }};
         text-align: center;
         margin:5px;
         padding: 2px 6px;
         border-radius: 3px;
+    }
+    span.timer-colon-aus {
+        color: {{ isset($upsell) ? $upsell['setting']['timer_text_bg_color'] : $setting['timer_text_bg_color'] }}!important;
     }
 </style>
 @endpush
@@ -193,10 +197,10 @@
             });
             $('input[name="count_down_timer"]').change(function(e){
                 if($(this).is(':checked')){
-                    $("#time_duration").show();
+                    $(".incart_timer-aus").show();
                     $('input[name="count_down_timer"]').val(1);
                 }else{
-                    $("#time_duration").hide();
+                    $(".incart_timer-aus").hide();
                     $('input[name="count_down_timer"]').val(0);
                 }
             });
@@ -247,7 +251,7 @@
                 setProperty('.product_title_color_style',"color",`${$(this).val()}`);
             });
             $('input[name="upsell_background_color"]').change(function(e){
-                setProperty('.upsell_background_color',"background-color",`${$(this).val()}`);
+                setProperty('.p_upsell.upsell_background_color',"background-color",`${$(this).val()}`);
             });
             $('input[name="sale_price_color"]').change(function(e){
                 setProperty('.sale_price_color_style',"color",`${$(this).val()}`);
@@ -299,7 +303,7 @@
                     setProperty('.incart_button',"background-color",$('input[name="button_background_color"]').val());
                 });
             });
-            
+
             var id = '';
             var upsell_add_route = '';
             @isset($upsell)
@@ -330,7 +334,7 @@
                         else if(response.errors){
                             $(element).empty().html('Save').prop('disabled',false);
                         }
-                        
+
                     },'POST',$(".upsellForm").serialize());
                 });
             @endisset
