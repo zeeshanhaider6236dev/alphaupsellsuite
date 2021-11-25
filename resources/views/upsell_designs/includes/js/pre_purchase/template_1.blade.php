@@ -319,13 +319,16 @@ function createHtmlForAddToCart(addToCartProducts) {
  *
  */
     document.addEventListener('change',function(e){
-        var target_images        = e.target.closest('div[class~=aus-t1-last-portion]').querySelectorAll('img');
-        var target_image_id      = e.target.closest('div[class~=aus-t1-item-box]').querySelector('img').attributes["product-id"].value;
-        var price_update_element = e.target.closest('div[class~=aus-t1-item-box').querySelector('.aus-t1-ib-price');
-        var variantID_update_element = e.target.closest('div[class~=aus-t1-item-box').querySelector('.alpha_target_product')
-        console.log(variantID_update_element);
-        /* <-------Call function---------> */
-        dynamicVariant(e.target, target_images, target_image_id, price_update_element, variantID_update_element,shop_currency)
+        if(e.target && e.target.classList.contains('aus-drop-down-t1'))
+        {
+            var target_images        = e.target.closest('div[class~=aus-t1-last-portion]').querySelectorAll('img');
+            var target_image_id      = e.target.closest('div[class~=aus-t1-item-box]').querySelector('img').attributes["product-id"].value;
+            var price_update_element = e.target.closest('div[class~=aus-t1-item-box').querySelector('.aus-t1-ib-price');
+            var variantID_update_element = e.target.closest('div[class~=aus-t1-item-box').querySelector('.alpha_target_product')
+            console.log(variantID_update_element);
+            /* <-------Call function---------> */
+            dynamicVariant(e.target, target_images, target_image_id, price_update_element, variantID_update_element,shop_currency)
+        }
     });
 /**
  *
