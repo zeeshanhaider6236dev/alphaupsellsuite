@@ -116,7 +116,9 @@
 @push('componentJs')
     <script src="https://unpkg.com/vanilla-picker@2"></script>
     <script>
+        console.log('working fine')
         $("#delete_button_auto").on( "click", function() {
+
             $( "#ppu_button" ).trigger( "click" );
         });
         $(function(){
@@ -285,6 +287,5 @@
         $(document).on('click','#delete_button_auto',function(){
             $('.ppu-auto-button')[0].click()
         });
-        console.log('working fine')
     </script>
 @endpush
