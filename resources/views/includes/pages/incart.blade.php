@@ -168,7 +168,7 @@
     <script src="https://unpkg.com/vanilla-picker@2"></script>
     <script>
         $(function(){
-            console.log('test');
+            console.log('test 1');
             $(document).on('click','.end_date', function() {
                $('.end_date').css({'background-color': '#fffdfd'});
             });
