@@ -116,7 +116,7 @@
 @push('componentJs')
     <script src="https://unpkg.com/vanilla-picker@2"></script>
     <script>
-        console.log('working')
+        console.log('Fbt Test pass')
         $("#delete_button_auto").on( "click", function() {
             $( "#ppu_button" ).trigger( "click" );
         });
