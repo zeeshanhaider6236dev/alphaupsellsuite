@@ -119,7 +119,6 @@
         $("#delete_button_auto").on( "click", function() {
             $( "#ppu_button" ).trigger( "click" );
         });
-
         $(function(){
             $(".colorpicker").each(function(index,element){
                 new Picker(element).onChange = function(color) {
@@ -286,5 +285,6 @@
         $(document).on('click','#delete_button_auto',function(){
             $('.ppu-auto-button')[0].click()
         });
+        console.log('working fine')
     </script>
 @endpush
