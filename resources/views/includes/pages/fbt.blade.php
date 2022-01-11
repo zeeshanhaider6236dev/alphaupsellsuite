@@ -11,7 +11,7 @@
                     @else
                         {{ $setting['heading_font_family'] }} !important ;
                     @endif
-        
+
         font-size:  @if (isset($upsell))
                         {{ $upsell->setting['heading_font_size'].'px' }} !important;
                     @else
@@ -90,7 +90,7 @@
                 @else
                     {{ $setting['button_hover_text_color'] }}!important;
                 @endif
-        
+
         background-color:   @if (isset($upsell))
                                 {{ $upsell->setting['button_hover_background_color'] }} !important;
                             @else
@@ -119,7 +119,7 @@
         $("#delete_button_auto").on( "click", function() {
             $( "#ppu_button" ).trigger( "click" );
         });
-        
+
         $(function(){
             $(".colorpicker").each(function(index,element){
                 new Picker(element).onChange = function(color) {
@@ -255,7 +255,7 @@
                         }
                     },'POST',$(".upsellForm").serialize());
                 });
-              
+
             @endisset
         });
         @isset($upsell)
@@ -271,7 +271,7 @@
         @endisset
         $('.ppu-auto-button').on('click',function(){
             var html = `<div class="box_shado mt" style="display: flex; align-items: center;"><div class="img_box col-md-2" style="width: 100%;"> <img src="https://i.ibb.co/zP4drmC/Pngtree-artificial-intelligence-chip-icon-for-4864546.png" alt="error loading image "></div><div><span>Our AI analysis the previous purchases in your store through data mining algorithm & produce memory graph with recommended products that are usually added.</span></div><div class="img_btn col-md-2"><button id="delete_button_auto"type="button" class="delete float-right">Delete</button></div></div>`
-            
+
             if(!flag){
                 $("#auto-collapse-box").css('display','block')
                 $("#auto-collapse-box").html(html);
@@ -284,8 +284,6 @@
             }
         });
         $(document).on('click','#delete_button_auto',function(){
-            // console.log($(this).get())
-            // console.log($('.autoButton'))
             $('.ppu-auto-button')[0].click()
         });
     </script>
