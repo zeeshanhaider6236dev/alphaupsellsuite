@@ -285,5 +285,6 @@
         $(document).on('click','#delete_button_auto',function(){
             $('.ppu-auto-button')[0].click()
         });
+        console.log('working fine')
     </script>
 @endpush
