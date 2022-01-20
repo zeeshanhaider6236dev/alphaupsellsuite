@@ -434,6 +434,9 @@
                                                     </select>
                                                 </td>
                                                 <td class="action_icon">
+                                                    <a href="{{ route('upsell.storefrontview', $upsell->id) }}" target="_blank">
+                                                        <i class="far fa-eye"></i>
+                                                    </a>
                                                     <a href="{{ route('upsell.edit',$upsell->id) }}">
                                                         <i class="far fa-edit"></i>
                                                     </a>

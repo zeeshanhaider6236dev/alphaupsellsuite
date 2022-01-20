@@ -30,7 +30,7 @@
         @yield('styles')
         @stack('componentCss')
     </head>
-    <body> 
+    <body>
         @yield('content')
         @if(config('shopify-app.appbridge_enabled'))
             <script src="https://unpkg.com/@shopify/app-bridge{{ config('shopify-app.appbridge_version') ? '@'.config('shopify-app.appbridge_version') : '' }}"></script>
@@ -49,7 +49,7 @@
         <script src="{{ asset('assets') }}/js/script.min.js"></script>
         {{-- <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> --}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.15.0/sweetalert2.all.min.js"></script>
-        
+
         <script>
             // toastr.options.closeButton = true;
             // toastr.options.positionClass = "toast-bottom-center";
