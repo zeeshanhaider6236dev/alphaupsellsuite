@@ -15,6 +15,7 @@ Route::middleware(['auth.shopify'])->group(function(){
     Route::post('/deleteUpsell','WelcomeController@deleteUpsell')->name('upsell.delete');
     Route::post('/setPriority','WelcomeController@setPriority')->name('upsell.setPriority');
     Route::get('plans','WelcomeController@plans')->name('plans');
+    Route::post('/contact','ContactUsController@store')->name('contact');
 });
 
 Route::middleware('cors')->group(function(){

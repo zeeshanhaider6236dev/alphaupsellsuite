@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Mail;
 class ContactUsController extends Controller
 {
     public function store(Request $request){
+        // return request()->all();
         $rules = [
             'email' => 'required|email',
             'subject' => 'required|string|max:191',
@@ -21,11 +22,11 @@ class ContactUsController extends Controller
         }
         $validated = $validator->validated();
         if(auth()->user()->shop_contacts()->create($validated)):
-            Mail::send('emails.contactUs', ['msg' => $validated['message']], function ($message) use ($validated) {
-                $message->from($validated['email'] ? $validated['email'] : auth()->user()->email );
-                $message->subject($validated['subject']);
-                $message->to(config('shopifyApi.strings.userEmailAddress'));
-            });
+            // Mail::send('emails.contactUs', ['msg' => $validated['message']], function ($message) use ($validated) {
+            //     $message->from($validated['email'] ? $validated['email'] : auth()->user()->email );
+            //     $message->subject($validated['subject']);
+            //     $message->to(config('shopifyApi.strings.userEmailAddress'));
+            // });
             // Mail::to('alpha_currency@alpha-currency-converter-app.com')->from($validated['email'] ? $validated['email'] : auth()->user()->name )->send(new ContactUs($validated));
             return response()->json(['success' => "Contact Successfull."]);
         endif;

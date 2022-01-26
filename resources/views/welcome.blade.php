@@ -226,11 +226,11 @@
                     <i class="fa fa-question-circle"></i>Help & Support
                 </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link {{ request('tab') == 'menu5' ? 'active' : '' }}" data-toggle="tab" href="#menu5">
                     <i class="fa fa-dollar-sign"></i>Billing
                 </a>
-            </li>
+            </li> -->
             <li class="nav-item">
                 <a class="nav-link {{ request('tab') == 'menu6' ? 'active' : '' }}" data-toggle="tab" href="#menu6">
                     <i class="fas fa-play"></i>Tutorials
@@ -890,21 +890,21 @@
             <div id="menu4" class="container tab-pane fade p-0 {{ request('tab') == 'menu4' ? 'active show' : '' }}">
                 <div class="card">
                     <div class="card-body help-support">
-                        <form>
+                        <form class="user_contact">
                           <div class="form-group">
                             <label for="alpha-upsell-contact-email">Email address</label>
-                            <input type="email" class="form-control" id="alpha-upsell-contact-email" placeholder="name@example.com">
+                            <input type="email" name="email" class="form-control" id="alpha-upsell-contact-email" placeholder="name@example.com">
                           </div>
                           <div class="form-group">
                             <label for="alpha-upsell-contact-us-subject">Subject</label>
-                            <input type="text" class="form-control" id="alpha-upsell-contact-us-subject" placeholder="example...">
+                            <input type="text" name="subject" class="form-control" id="alpha-upsell-contact-us-subject" placeholder="example...">
                           </div>
                           <div class="form-group">
                             <label for="alpha-upsell-contact-us-message">Message</label>
-                            <textarea class="form-control" id="alpha-upsell-contact-us-message" rows="3"></textarea>
+                            <textarea class="form-control" name="message" id="alpha-upsell-contact-us-message" rows="3"></textarea>
                           </div>
                           <div class="form-group">
-                            <a href="#" class="btn glow text-light">Send</a>
+                            <a href="#" class="btn glow text-light send_msg">Send</a>
                           </div>
                         </form>
                         <div class="container more_help">
@@ -1399,6 +1399,20 @@
             navLink.split('#')
             insertUrlParam('tab',navLink.split('#')[1])
         })
+        $('.send_msg').on('click',function(){
+            $.ajax({
+                url: "{{ route('contact') }}",
+                data: $('.user_contact').serialize(),
+                method: "post",
+                success: function(response){
+                    if(response.status == true)
+                    {
+                        e.target.closest('tr').remove();
+                        messages(response);
+                    }
+                }
+            });
+        });
     });
 
     function insertUrlParam(key, value) {
