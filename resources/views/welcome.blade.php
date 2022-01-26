@@ -1407,7 +1407,9 @@
                 success: function(response){
                     if(response.status == true)
                     {
-                        e.target.closest('tr').remove();
+                        $('input[name=email]').val('');
+                        $('input[name=subject]').val('');
+                        $('textarea[name=message]').val('');
                         messages(response);
                     }
                 }

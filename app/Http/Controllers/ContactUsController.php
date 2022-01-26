@@ -28,7 +28,7 @@ class ContactUsController extends Controller
             //     $message->to(config('shopifyApi.strings.userEmailAddress'));
             // });
             // Mail::to('alpha_currency@alpha-currency-converter-app.com')->from($validated['email'] ? $validated['email'] : auth()->user()->name )->send(new ContactUs($validated));
-            return response()->json(['success' => "Contact Successfull."]);
+            return response()->json(['status' => true,'success' => "Message Sent."]);
         endif;
         return response()->json(['error' => "Something Went Wrong."]);
     }
