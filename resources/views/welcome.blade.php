@@ -1411,6 +1411,8 @@
                         $('input[name=subject]').val('');
                         $('textarea[name=message]').val('');
                         messages(response);
+                    }else{
+                        messages(response);
                     }
                 }
             });
