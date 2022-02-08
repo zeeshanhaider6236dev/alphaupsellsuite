@@ -223,6 +223,57 @@
                                     </div>
                                 </div>
                                 <div class="container offer">
+                                   <div class="row">
+                                      <div class="col-md-5 offer_left">
+                                         <h4>Discount Details</h4>
+                                         <p>
+                                            Choose the discount type here whether you want to apply discount in percentage, a fix price or no discount.
+                                         </p>
+                                      </div>
+                                      <div class="col-md-7 offer_right">
+                                         <div class="row">
+                                            <div class="col-md-6 discount_left">
+                                               <label>Discount Type:</label><br>
+                                               <select name="discount_type">
+                                                  <option @if(isset($upsell))
+                                                           {{ $upsell->setting['discount_type'] == "% Off" ? "selected" : '' }}
+                                                     @else
+                                                           {{ $upsellType->setting['discount_type'] == "% Off" ? "selected" : '' }}
+                                                     @endif
+        															value="% Off">% Off
+                                                  </option>
+                                                  <option @if(isset($upsell))
+                                                              {{ $upsell->setting['discount_type'] == "Fixed Price Off" ? "selected" : '' }}
+                                                        @else
+                                                              {{ $upsellType->setting['discount_type'] == "Fixed Price Off" ? "selected" : '' }}
+                                                        @endif
+        															value="Fixed Price Off">Fixed Price Off
+                                                  </option>
+                                                  {{-- <option @if(isset($upsell))
+                                                              {{ $upsell->setting['discount_type'] == "No Discount" ? "selected" : '' }}
+                                                        @else
+                                                              {{ $upsellType->setting['discount_type'] == "No Discount" ? "selected" : '' }}
+                                                        @endif
+        															values="No Discount">No Discount
+                                                  </option> --}}
+                                               </select>
+                                            </div>
+                                            <div class="col-md-6 discount_left">
+                                               <label>Discount Value:</label><br>
+                                               <input type="number" name="discount_value" value=
+                                                  @if(isset($upsell))
+        															"{{$upsell->setting['discount_value']}}"
+        														@else
+        															"{{$upsellType->setting['discount_value']}}"
+        														@endif
+        														min="0"
+                                               />
+                                            </div>
+                                         </div>
+                                      </div>
+                                   </div>
+                                </div>
+                                <div class="container offer">
                                     <div class="row">
                                         <div class="col-md-5 offer_left">
                                             <h4>Optional Settings</h4>

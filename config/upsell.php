@@ -311,6 +311,8 @@ return [
                     'button_hover_text_color'       => "#824b4bff",
                     'button_background_color'       => "#546ea9ff",
                     'button_hover_background_color' => "#a7b5d6ff",
+                    'discount_type'                 => '% Off',
+                    'discount_value'                => 10,
 
                 ],
                 'created_at'=> Carbon::now(),

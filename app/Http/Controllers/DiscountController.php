@@ -61,6 +61,48 @@ class DiscountController extends Controller
 				    ];
 				    $line_items[] = $lineItem;
                 endif;
+			elseif(isset($value->upsell_id->_alpha_upsell_id)):
+				$upsell_id  = $value->upsell_id->_alpha_upsell_id;
+				$shop       = $value->shop;
+				$user 	    = User::where('name',$shop)->with(['upsells'=>function($u) use($upsell_id){
+					$u->where('id',$upsell_id);
+				}])->first();
+				if($user && count($user->upsells)):
+					$discount_type  = $user->upsells[0]->setting['discount_type'];
+					$discount_value = $user->upsells[0]->setting['discount_value'];
+					if($discount_type == config('upsell.strings.ppuDiscountType')[0]):
+						$lineItem = [
+								"variant_id"=> $variant_id,
+							"quantity"=> 1,
+							"applied_discount"=> [
+								"description" => "T_Discount_".$value->upsell_id->_alpha_upsell_id,
+								"value_type"  => "percentage",
+								"value"		  => $discount_value,
+								"amount"	  => $value->price,
+							],
+						];
+					else:
+						$lineItem = [
+								"variant_id"=> $variant_id,
+							"quantity"=> 1,
+							"applied_discount"=> [
+								"description" => "T. Discount",
+								"value_type"  => "fixed_amount",
+								"value"		  => $discount_value,
+								"amount"	  => $value->price,
+							]
+						];
+					endif;
+					$line_items[] = $lineItem;
+				else:
+					$shop       = $value->shop;
+					$user 	    = User::where('name',$shop)->first();
+					$lineItem = [
+							"variant_id"=> $variant_id,
+						"quantity"=> $value->quantity,
+					];
+					$line_items[] = $lineItem;
+				endif;
             else:
             	if(isset($value->upsell_id->_Sale_notification)):
 	        		$alphaKeyName  = "_Sale_notification";
