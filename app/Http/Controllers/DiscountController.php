@@ -61,13 +61,13 @@ class DiscountController extends Controller
 				    ];
 				    $line_items[] = $lineItem;
                 endif;
-			elseif(isset($value->upsell_id->_alpha_upsell_id)):
+            elseif(isset($value->upsell_id->_alpha_upsell_id)):
 				$upsell_id  = $value->upsell_id->_alpha_upsell_id;
 				$shop       = $value->shop;
 				$user 	    = User::where('name',$shop)->with(['upsells'=>function($u) use($upsell_id){
 					$u->where('id',$upsell_id);
 				}])->first();
-				if($user && count($user->upsells)):
+				if($user && count($user->upsells) && $user->upsells[0]->upsell_type_id==3):
 					$discount_type  = $user->upsells[0]->setting['discount_type'];
 					$discount_value = $user->upsells[0]->setting['discount_value'];
 					if($discount_type == config('upsell.strings.ppuDiscountType')[0]):

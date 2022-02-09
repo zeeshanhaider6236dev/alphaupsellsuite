@@ -4,13 +4,20 @@ var app_URL = "{{ env('APP_URL') }}"
 var proxy_url = "{{ env('PROXY_URL')}}";
 
 var getUpsell = {!! $upsell !!}
-console.log(getUpsell.setting);
+console.log(getUpsell);
 
 var currentShowingUpsellId  = "{{ $upsell_id }}";
 var appear_on_handle        = "{{ $aProductHandle[0] }}";
 var timer_duration          = "{{ $upsell->setting['time_duration_minutes'] }}";
 var cart_button_text        = "{{ $upsell->setting['button_text'] }}";
-var incart_title            = "{{ $upsell->setting['incart_heading'] }}";
+if(getUpsell.setting.discount_type == "Fixed Price Off")
+{
+    var incart_title            = getUpsell.setting.discount_value+alpha_upsell_currency_symbol+" Off";
+}
+else
+{
+    var incart_title            = getUpsell.setting.discount_value+" "+getUpsell.setting.discount_type;
+}
 var show_product_title      = "{{ $upsell->setting['show_product_title'] }}";
 var show_variant_selection  = "{{ $upsell->setting['show_variant_selection'] }}";
 var show_compare_price      = "{{ $upsell->setting['show_compare_price'] }}";
@@ -19,7 +26,7 @@ var product_image           = appear_on_product.image.src;
 var title                   = (appear_on_product.title).toString();
 var product_title           = alphaProductShortName(title,30);
 var product_variants        = appear_on_product.variants;
-        var in_cart_Html = '<div class="alpha_upsell_in_page_custom"><div class="alpha_upsell_in_page_design_inpage"><div class="alpha_upsell_in_page_p_upsell"><div class="alpha_upsell_in_page_timer_title"><p>'+getUpsell.setting.discount_value+" "+getUpsell.setting.discount_type+" Timer until the offer expires"+'</p></div>'
+        var in_cart_Html = '<div class="alpha_upsell_in_page_custom"><div class="alpha_upsell_in_page_design_inpage"><div class="alpha_upsell_in_page_p_upsell"><div class="alpha_upsell_in_page_timer_title"><p>'+incart_title+" Timer until the offer expires"+'</p></div>'
         if(getUpsell.setting.count_down_timer != 0){
             in_cart_Html += '<div class="alpha_upsell_in_page_timer"><input type="text" readonly class="minutes"><input type="text"  readonly class="seconds"></div>'
         }
@@ -329,7 +336,7 @@ var product_variants        = appear_on_product.variants;
 
         }
     });
-
+    
      /*
      *
      * ============================================
@@ -413,6 +420,7 @@ var product_variants        = appear_on_product.variants;
                 filter_items.push(filter_item_obj)
             }
             var alpha_data_for_discount = createFormData({'discounts':JSON.stringify(filter_items)});
+            console.log(alpha_data_for_discount);
     
             alpha_upsell_ajax(proxy_url+"/create/discounts",function(res){
                 if(res.status == true)
@@ -532,7 +540,6 @@ var product_variants        = appear_on_product.variants;
             });
         }
     }
-
 
 
 

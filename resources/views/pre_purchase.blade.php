@@ -342,7 +342,7 @@
                                  </div>
                                  <div class="col-md-6 discount_left">
                                        <label>End Date:</label><br>
-                                       <input class="end_date" name="end_date" type="date" style="background-color: #dadada;" />
+                                       <input value="{{ isset($upsell['setting']['end_date']) ? $upsell['setting']['end_date'] : '' }}" class="end_date" name="end_date" type="date" style="background-color: #dadada;" />
                                  </div>
                               </div>
                               </div>
