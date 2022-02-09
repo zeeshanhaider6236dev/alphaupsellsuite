@@ -1,15 +1,23 @@
 
 
 var app_URL = "{{ env('APP_URL') }}"
+var proxy_url = "{{ env('PROXY_URL')}}";
 
 var getUpsell = {!! $upsell !!}
-console.log(getUpsell.setting);
+console.log(getUpsell);
 
 var currentShowingUpsellId  = "{{ $upsell_id }}";
 var appear_on_handle        = "{{ $aProductHandle[0] }}";
 var timer_duration          = "{{ $upsell->setting['time_duration_minutes'] }}";
 var cart_button_text        = "{{ $upsell->setting['button_text'] }}";
-var incart_title            = "{{ $upsell->setting['incart_heading'] }}";
+if(getUpsell.setting.discount_type == "Fixed Price Off")
+{
+    var incart_title            = getUpsell.setting.discount_value+alpha_upsell_currency_symbol+" Off";
+}
+else
+{
+    var incart_title            = getUpsell.setting.discount_value+" "+getUpsell.setting.discount_type;
+}
 var show_product_title      = "{{ $upsell->setting['show_product_title'] }}";
 var show_variant_selection  = "{{ $upsell->setting['show_variant_selection'] }}";
 var show_compare_price      = "{{ $upsell->setting['show_compare_price'] }}";
@@ -18,7 +26,7 @@ var product_image           = appear_on_product.image.src;
 var title                   = (appear_on_product.title).toString();
 var product_title           = alphaProductShortName(title,30);
 var product_variants        = appear_on_product.variants;
-        var in_cart_Html = '<div class="alpha_upsell_in_page_custom"><div class="alpha_upsell_in_page_design_inpage"><div class="alpha_upsell_in_page_p_upsell"><div class="alpha_upsell_in_page_timer_title"><p>'+incart_title+'</p></div>'
+        var in_cart_Html = '<div class="alpha_upsell_in_page_custom"><div class="alpha_upsell_in_page_design_inpage"><div class="alpha_upsell_in_page_p_upsell"><div class="alpha_upsell_in_page_timer_title"><p>'+incart_title+" Timer until the offer expires"+'</p></div>'
         if(getUpsell.setting.count_down_timer != 0){
             in_cart_Html += '<div class="alpha_upsell_in_page_timer"><input type="text" readonly class="minutes"><input type="text"  readonly class="seconds"></div>'
         }
@@ -328,7 +336,210 @@ var product_variants        = appear_on_product.variants;
 
         }
     });
+    
+     /*
+     *
+     * ============================================
+     * Theme Checkout button selectors
+     * ============================================
+     *
+     */
+    const themeCheckoutBtn = ['#checkout','input[name="checkout"]','button[name="checkout"]','input[class="action_button right"]','button[class~="btn-checkout"]','div[class~="actions"] button[class~="btn"]','div[class~="cart-checkout-btn"] .no-mrg','a[class~=btn-checkout]'];
+    
+     /*
+     *
+     * ============================================
+     * Replace custom Checkout button with cart
+     * checkout button
+     * ============================================
+     *
+     */
+    for(checkoutBtn of themeCheckoutBtn)
+    {
+        const themeCheckOutBtn = document.querySelectorAll(checkoutBtn)
+        for(eachChekout of themeCheckOutBtn)
+        {
+            if(eachChekout != undefined)
+            {
+                replaceElement(eachChekout,'alpha_checkoutBtn');
+            }
+        }
+    }
+    
+    document.addEventListener('click', function(e){
+        if(e.target && e.target.classList.contains('alpha_checkoutBtn')) //close upsell btn
+        {
+            CheckoutWithDicounts(e.target);
+        }
+    });
 
+    
+    /* Create Form Data function */
+    function createFormData(data)
+    {
+        var formData = new FormData();
+        for ( var key in data ) {
+            if(typeof data[key] == 'object'){
+                if(data[key].length == 0)
+                {
+                    formData.append(key+'[]','');
+                }
+                else{
+                    for (var i = 0; i < data[key].length; i++) {
+                        formData.append(key+'[]', data[key][i]);
+                    }
+                }
+            }
+            else{
+                formData.append(key, data[key]);
+            }
+        }
+        return formData;
+    }
+    
+    /* <------------Redirect to Checkout by creating Discounts-----------> */
+    function CheckoutWithDicounts(target = null)
+    {
+        var alpha_cart_items_url = window.location.origin+'/cart.json';
+        alpha_upsell_ajax(alpha_cart_items_url,function(response){
+            var filter_items = []
+            for(key in response.items )
+            {
+                var filter_item_obj = {
+                    'upsell_id':response.items[key].properties,
+                    'variant_id': response.items[key].variant_id,
+                    'quantity': response.items[key].quantity,
+                    'price': (response.items[key].price)/100,
+                    'line_price': (response.items[key].line_price)/100,
+                    'product_id': response.items[key].product_id,
+                    'title': response.items[key].title,
+                    'variant_title': response.items[key].variant_title,
+                    'vendor': response.items[key].vendor,
+                    'shop':window.location.host
+                }
+                filter_items.push(filter_item_obj)
+            }
+            var alpha_data_for_discount = createFormData({'discounts':JSON.stringify(filter_items)});
+            console.log(alpha_data_for_discount);
+    
+            alpha_upsell_ajax(proxy_url+"/create/discounts",function(res){
+                if(res.status == true)
+                {
+                    window.location.href = res.checkout_url
+                }
+            },'POST',alpha_data_for_discount);
+    
+        },'POST');
+    }
+    
+    function replaceElement(target_element,classToAdd)
+    {
+    
+        // const targetElement = document.querySelector(target_element)
+        // console.log(target_element)
+        if(target_element != null)
+        {
+            var targetClone   = target_element.cloneNode(true)
+            if (!target_element.classList.contains(classToAdd)) {
+                targetClone.classList.add(classToAdd);
+                target_element.insertAdjacentElement('afterend', targetClone);
+                target_element.remove();
+            }
+            targetClone.addEventListener('click',function(e){
+                e.preventDefault();
+                var variant_id = '';
+                var urlParams;
+                (window.onpopstate = function () {
+                    var match,
+                        pl     = /\+/g,  // Regex for replacing addition symbol with a space
+                        search = /([^&=]+)=?([^&]*)/g,
+                        decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+                        query  = window.location.search.substring(1);
+    
+                    urlParams = {};
+                    while (match = search.exec(query))
+                    urlParams[decode(match[1])] = decode(match[2]);
+                })();
+                //------------------------------------------------------------------------------
+    
+                urlParams.variant != undefined ? variant_id = urlParams.variant :  variant_id = addToCartProducts[0].variants[0].id;
+                //------------------------------------------------------------------------------
+                for(qty of pickQuantity)
+                {
+                    if(document.querySelector(qty) != undefined)
+                    {
+                        var targetProductQuantity = document.querySelector(qty).value;
+                    }
+                    else
+                    {
+                        targetProductQuantity = 1;
+                    }
+                }
+    
+                document.querySelector('.alpha_target_product').value = variant_id
+                document.querySelector('.alpha_target_product').setAttribute('alpha_product_quantity',targetProductQuantity)
+                if(sale_notification_object != null)
+                {
+                    var alpha_atc_object = [{
+                        "id":variant_id,
+                        "quantity":targetProductQuantity,
+                        "properties":{
+                            '_Sale_notification':JSON.parse(sale_notification_object).upsellId
+                        }
+                    }]
+                }
+                else
+                {
+                    var alpha_atc_object = [{
+                        "id":variant_id,
+                        "quantity":targetProductQuantity,
+                    }]
+                }
+                var data = {
+                    items:alpha_atc_object
+                };
+                var alpha_fbt_upsell_cart_data = JSON.stringify(data);
+                var alpha_header = [
+                    {
+                        "Content-Type": "application/json"
+                    }
+                ]
+                alpha_upsell_ajax("/cart/add.js",function(response){
+    
+                    if(sale_notification_object != null)
+                    {
+                        alpha_upsell_ajax(proxy_url+"/trackUpsell?id="+JSON.parse(sale_notification_object).upsellId+"",function(res){ });
+                    }
+    
+                    var target_product_quantity    = response.items[0].quantity;
+                    var target_product_varriant_id = response.items[0].variant_id;
+                    for(variant of addToCartProducts[0].variants )
+                    {
+                        if (variant.id ==target_product_varriant_id ) {
+                            var target_product_varriant_price = target_product_quantity*variant.price;
+                            break;
+                        }
+                    }
+                    document.querySelector('.aus-bt-2-price-fig-resp').innerText = shop_currency+target_product_varriant_price.toFixed(2);
+                    // response ? document.querySelector('.alpha_upsell_m2_modal2').style.display = "block" : '';
+                    if(response)
+                    {
+                        document.querySelector('.aus-t1-main-container-wrapper').style.display = "block"
+                        document.body.style.overflow = "hidden"
+                    }
+                    //update View
+                    var formData = new FormData();
+                        formData.append('id'+[],upsell.id);
+                    alpha_upsell_ajax(proxy_url+"/count/view",function(res){
+                        if(res.status == true){
+                            console.log('increased');
+                        }
+                    },"POST",formData)
+                    //update view code end
+                },'POST',alpha_fbt_upsell_cart_data,alpha_header);
+            });
+        }
+    }
 
 
 

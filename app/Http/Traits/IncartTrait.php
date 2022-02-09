@@ -199,6 +199,8 @@ trait IncartTrait {
     {
         $extra = [];
        
+        $extra [] = [ 'key' => 'discount_type', 'value' => [ "required","string" ] ];
+        $extra [] = [ 'key' => 'discount_value', 'value' => [ "required","numeric" ] ];
         $extra [] = [ 'key' => 'count_down_timer', 'value' => [ "nullable","in:1,0" ] ];
         $extra [] = [ 'key' => 'time_duration_minutes', 'value' => [ "required_if:count_down_timer,1","min:0","numeric"]];
         $extra [] = [ 'key' => 'timer_font_family', 'value' => [ "required", 'string', 'in:'.implode(',',config('upsell.strings.fontFamily')) ] ];
