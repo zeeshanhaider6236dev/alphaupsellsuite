@@ -1,6 +1,7 @@
 
 
 var app_URL = "{{ env('APP_URL') }}"
+var proxy_url = "{{ env('PROXY_URL')}}";
 
 var getUpsell = {!! $upsell !!}
 console.log(getUpsell.setting);
