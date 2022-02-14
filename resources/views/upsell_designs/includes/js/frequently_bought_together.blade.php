@@ -31,7 +31,19 @@
     }
     alpha_upsell_ajax(tProductUrl,function(res){
         if(res.hasOwnProperty('product')){
+            for(let x in fbtProducts)
+            {
+                if(res.product.id == fbtProducts[x].id)
+                {
+                    fbtProducts.splice(x,1);
+                }
+            }
             fbtProducts.unshift(res.product);
+            if(fbtProducts.length > 3)
+            {
+                console.log("22");
+                fbtProducts.length = 3;
+            }
             createHtmlForFbt(fbtProducts);
         }
     });
