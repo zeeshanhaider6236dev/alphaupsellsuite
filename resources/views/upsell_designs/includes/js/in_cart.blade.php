@@ -113,6 +113,7 @@ var product_variants        = appear_on_product.variants;
 
     var cart_page_selectors = [
         'div#slidedown-cart div.has-items ul.mini-products-list',
+        'div.cart__items',
         'div.form-cart div.enj-minicart-ajax',
         'div#CartDrawer.drawer div#CartContainer',
         'div.cart-group-1 ul.drop-cart li.no-way',
