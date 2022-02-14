@@ -234,7 +234,7 @@ trait FrontEndTrait {
                     return $data;
                     // $aProductHandle = [];
                 else:
-                    $products = array_merge($products,collect($appearOnproducts)->take(2)->toArray());
+                    $products = array_merge($products,collect($appearOnproducts)->take(3)->toArray());
                     foreach($products as $productHandle):
                         $aProductHandle[] = $productHandle['handle'];
                     endforeach;
@@ -262,7 +262,7 @@ trait FrontEndTrait {
                         endforeach;
                         $price = array_column($productsWithCount, 'count');
                         array_multisort($price, SORT_DESC, $productsWithCount);
-                        $products = array_merge($products,collect($productsWithCount)->take(2)->toArray());
+                        $products = array_merge($products,collect($productsWithCount)->take(3)->toArray());
                         foreach($products as $productHandle):
                             $aProductHandle[] = $productHandle['handle'];
                         endforeach;
@@ -318,7 +318,7 @@ trait FrontEndTrait {
                         endforeach;
                         $price = array_column($collectionProducts, 'count');
                         array_multisort($price, SORT_DESC, $collectionProducts);
-                        $products = array_merge($products,collect($collectionProducts)->take(2)->toArray());
+                        $products = array_merge($products,collect($collectionProducts)->take(3)->toArray());
                         foreach($products as $collectionProduct):
                             $aProductHandle[] = $collectionProduct['node']['handle'];
                         endforeach;
@@ -374,7 +374,7 @@ trait FrontEndTrait {
                         // return $TagsProducts;
                         $price = array_column($TagsProducts, 'count');
                         array_multisort($price, SORT_DESC, $TagsProducts);
-                        $products = array_merge($products,collect($TagsProducts)->take(2)->toArray());
+                        $products = array_merge($products,collect($TagsProducts)->take(3)->toArray());
                         foreach($products as $TagsProducts):
                             $aProductHandle[] = $TagsProducts['node']['handle'];
                         endforeach;
@@ -415,7 +415,7 @@ trait FrontEndTrait {
                         endforeach;
                         $price = array_column($productsWithCount, 'count');
                         array_multisort($price, SORT_DESC, $productsWithCount);
-                        $products = array_merge($products,collect($productsWithCount)->take(2)->toArray());
+                        $products = array_merge($products,collect($productsWithCount)->take(3)->toArray());
                         foreach($products as $productHandle):
                             $aProductHandle[] = $productHandle['handle'];
                         endforeach;
@@ -468,7 +468,7 @@ trait FrontEndTrait {
                             endforeach;
                             $price = array_column($collectionProducts, 'count');
                             array_multisort($price, SORT_DESC, $collectionProducts);
-                            $products = array_merge($products,collect($collectionProducts)->take(2)->toArray());
+                            $products = array_merge($products,collect($collectionProducts)->take(3)->toArray());
                             // dd($products);
                             foreach($products as $collectionProduct):
                                 $aProductHandle[] = $collectionProduct['node']['handle'];
@@ -527,7 +527,7 @@ trait FrontEndTrait {
                             // return $TagsProducts;
                             $price = array_column($TagsProducts, 'count');
                             array_multisort($price, SORT_DESC, $TagsProducts);
-                            $products = array_merge($products,collect($productsWithCount)->take(2)->toArray());
+                            $products = array_merge($products,collect($productsWithCount)->take(3)->toArray());
                             foreach($products as $collectionProduct):
                                 $aProductHandle[] = $collectionProduct['handle'];
                             endforeach;
@@ -569,7 +569,7 @@ trait FrontEndTrait {
                         endforeach;
                         $price = array_column($productsWithCount, 'count');
                         array_multisort($price, SORT_DESC, $productsWithCount);
-                        $products = array_merge($products,collect($productsWithCount)->take(2)->toArray());
+                        $products = array_merge($products,collect($productsWithCount)->take(3)->toArray());
                         foreach($products as $productHandle):
                             $aProductHandle[] = $productHandle['handle'];
                         endforeach;
@@ -621,7 +621,7 @@ trait FrontEndTrait {
                             endforeach;
                             $price = array_column($collectionProducts, 'count');
                             array_multisort($price, SORT_DESC, $collectionProducts);
-                            $products = array_merge($products,collect($collectionProducts)->take(2)->toArray());
+                            $products = array_merge($products,collect($collectionProducts)->take(3)->toArray());
                             foreach($products as $collectionProduct):
                                 $aProductHandle[] = $collectionProduct['node']['handle'];
                             endforeach;
@@ -678,7 +678,7 @@ trait FrontEndTrait {
                             // return $TagsProducts;
                             $price = array_column($TagsProducts, 'count');
                             array_multisort($price, SORT_DESC, $TagsProducts);
-                            $products = array_merge($products,collect($TagsProducts)->take(2)->toArray());
+                            $products = array_merge($products,collect($TagsProducts)->take(3)->toArray());
                             foreach($products as $tagsProduct):
                                 $aProductHandle[] = $tagsProduct['node']['handle'];
                             endforeach;
