@@ -1328,7 +1328,11 @@ trait FrontEndTrait {
                 if($upsell->Tproducts->where('shopify_product_id',$cart_product_id)->count()):
                     if($upsell->Aproducts->count()):
                         $product_ids_to_get = $upsell->Aproducts->pluck('shopify_product_id');
-                        $appearOnproducts = $this->getProductsForUpsellGraphql($product_ids_to_get,$shop);
+                        $product_ids_to_get=json_decode($product_ids_to_get);
+                        $product_ids_to_target = $upsell->Tproducts->pluck('shopify_product_id');
+                        $product_ids_to_target=json_decode($product_ids_to_target);
+                        $appearing_products = array_diff($product_ids_to_get,$product_ids_to_target);
+                        $appearOnproducts = $this->getProductsForUpsellGraphql($appearing_products,$shop);
                         $aProducts = [];
                         foreach($appearOnproducts['nodes'] as $aproducts):
                             $aProducts[] = collect($aproducts);
@@ -1340,18 +1344,29 @@ trait FrontEndTrait {
                         $data[ $this->commonString($upsell->upsellType->name) ]['css'] = view('upsell_designs.index_css',compact('upsell'))->with('shopName',$shop->name)->render();
                         $data[ $this->commonString($upsell->upsellType->name) ]['js'] = view('upsell_designs.index_js',compact('upsell','aProductHandle','upsell_id'))->with('shopName',$shop->name)->render();
                     elseif($upsell->Acollections->count()):
-                            $shopify_collecton_id   =  $upsell->Acollections->pluck('shopify_collection_id');
-                            $collections = $this->getCollectionProductsGraphql($shopify_collecton_id,$shop);
-                            foreach($collections as $collectionProducts):
-                                $aProducts[] = collect($collectionProducts["products"]["edges"]);
-                            endforeach;
-                            $aProductt = $aProducts[0]->toArray();
-                            $aProduct = Arr::random($aProductt);
-                            $upsell_id = $upsell->id;
-                            $aProductHandle[]  = $aProduct['node']['handle'];
-                            $data[ $this->commonString($upsell->upsellType->name) ]['handle'] =  $aProductHandle;
-                            $data[ $this->commonString($upsell->upsellType->name) ]['css'] = view('upsell_designs.index_css',compact('upsell'))->with('shopName',$shop->name)->render();
-                            $data[ $this->commonString($upsell->upsellType->name) ]['js'] = view('upsell_designs.index_js',compact('upsell','aProductHandle','upsell_id'))->with('shopName',$shop->name)->render();
+                        $shopify_collecton_id   =  $upsell->Acollections->pluck('shopify_collection_id');
+                        $product_ids_to_target = $upsell->Tproducts->pluck('shopify_product_id');
+                        $product_ids_to_target=json_decode($product_ids_to_target);
+                        $collections = $this->getCollectionProductsGraphql($shopify_collecton_id,$shop);
+                        foreach($collections as $collectionProducts):
+                            $aProducts[] = collect($collectionProducts["products"]["edges"]);
+                        endforeach;
+                        $productToAppear = [];
+                        foreach($aProducts[0] as $product1)
+                        {
+                            $pid=str_replace("gid://shopify/Product/","",$product1['node']['id']);
+                            if (!in_array($pid,$product_ids_to_target))
+                            {
+                                array_push($productToAppear,$product1);
+                            }
+                        }
+                        $aProductt = $productToAppear;
+                        $aProduct = Arr::random($aProductt);
+                        $upsell_id = $upsell->id;
+                        $aProductHandle[]  = $aProduct['node']['handle'];
+                        $data[ $this->commonString($upsell->upsellType->name) ]['handle'] =  $aProductHandle;
+                        $data[ $this->commonString($upsell->upsellType->name) ]['css'] = view('upsell_designs.index_css',compact('upsell'))->with('shopName',$shop->name)->render();
+                        $data[ $this->commonString($upsell->upsellType->name) ]['js'] = view('upsell_designs.index_js',compact('upsell','aProductHandle','upsell_id'))->with('shopName',$shop->name)->render();
                     elseif($upsell->Atags->count()):
                         $shopify_tag_id   =  $upsell->Atags->pluck('shopify_tag_id');
                         $tags   = $this->getTagProductsGraphql($shopify_tag_id,$shop);
@@ -2130,7 +2145,11 @@ trait FrontEndTrait {
                 if($upsell):
                     if($upsell->Aproducts->count()):
                         $product_ids_to_get = $upsell->Aproducts->pluck('shopify_product_id');
-                        $appearOnproducts = $this->getProductsForUpsellGraphql($product_ids_to_get,$shop);
+                        $product_ids_to_get=json_decode($product_ids_to_get);
+                        $product_ids_to_target = $upsell->Tproducts->pluck('shopify_product_id');
+                        $product_ids_to_target=json_decode($product_ids_to_target);
+                        $appearing_products = array_diff($product_ids_to_get,$product_ids_to_target);
+                        $appearOnproducts = $this->getProductsForUpsellGraphql($appearing_products,$shop);
                         $aProducts = [];
                         foreach($appearOnproducts['nodes'] as $aproducts):
                             $aProducts[] = collect($aproducts);
@@ -2143,18 +2162,30 @@ trait FrontEndTrait {
                         $data[ $this->commonString($upsell->upsellType->name) ]['js'] = view('upsell_designs.index_js',compact('upsell','aProductHandle','upsell_id'))->with('shopName',$shop->name)->render();
                         // dd($data);
                     elseif($upsell->Acollections->count()):
-                            $shopify_collecton_id   =  $upsell->Acollections->pluck('shopify_collection_id');
-                            $collections = $this->getCollectionProductsGraphql($shopify_collecton_id,$shop);
-                            foreach($collections as $collectionProducts):
-                                $aProducts[] = collect($collectionProducts["products"]["edges"]);
-                            endforeach;
-                            $aProductt = $aProducts[0]->toArray();
-                            $aProduct = Arr::random($aProductt);
-                            $upsell_id = $upsell->id;
-                            $aProductHandle[]  = $aProduct['node']['handle'];
-                            $data[ $this->commonString($upsell->upsellType->name) ]['handle'] =  $aProductHandle;
-                            $data[ $this->commonString($upsell->upsellType->name) ]['css'] = view('upsell_designs.index_css',compact('upsell'))->with('shopName',$shop->name)->render();
-                            $data[ $this->commonString($upsell->upsellType->name) ]['js'] = view('upsell_designs.index_js',compact('upsell','aProductHandle','upsell_id'))->with('shopName',$shop->name)->render();
+                        $shopify_collecton_id   =  $upsell->Acollections->pluck('shopify_collection_id');
+                        $product_ids_to_target = $upsell->Tproducts->pluck('shopify_product_id');
+                        $product_ids_to_target=json_decode($product_ids_to_target);
+                        $collections = $this->getCollectionProductsGraphql($shopify_collecton_id,$shop);
+                        foreach($collections as $collectionProducts):
+                            $aProducts[] = collect($collectionProducts["products"]["edges"]);
+                        endforeach;
+                        $productToAppear = [];
+                        foreach($aProducts[0] as $product1)
+                        {
+                            $pid=str_replace("gid://shopify/Product/","",$product1['node']['id']);
+                            if (!in_array($pid,$product_ids_to_target))
+                            {
+                                array_push($productToAppear,$product1);
+                            }
+                        }
+                        // info($productToAppear);
+                        $aProductt = $productToAppear;
+                        $aProduct = Arr::random($aProductt);
+                        $upsell_id = $upsell->id;
+                        $aProductHandle[]  = $aProduct['node']['handle'];
+                        $data[ $this->commonString($upsell->upsellType->name) ]['handle'] =  $aProductHandle;
+                        $data[ $this->commonString($upsell->upsellType->name) ]['css'] = view('upsell_designs.index_css',compact('upsell'))->with('shopName',$shop->name)->render();
+                        $data[ $this->commonString($upsell->upsellType->name) ]['js'] = view('upsell_designs.index_js',compact('upsell','aProductHandle','upsell_id'))->with('shopName',$shop->name)->render();
                     elseif($upsell->Atags->count()):
                         $shopify_tag_id   =  $upsell->Atags->pluck('shopify_tag_id');
                         $tags   = $this->getTagProductsGraphql($shopify_tag_id,$shop);

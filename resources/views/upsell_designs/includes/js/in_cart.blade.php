@@ -10,14 +10,7 @@ var currentShowingUpsellId  = "{{ $upsell_id }}";
 var appear_on_handle        = "{{ $aProductHandle[0] }}";
 var timer_duration          = "{{ $upsell->setting['time_duration_minutes'] }}";
 var cart_button_text        = "{{ $upsell->setting['button_text'] }}";
-if(getUpsell.setting.discount_type == "Fixed Price Off")
-{
-    var incart_title            = getUpsell.setting.discount_value+alpha_upsell_currency_symbol+" Off";
-}
-else
-{
-    var incart_title            = getUpsell.setting.discount_value+" "+getUpsell.setting.discount_type;
-}
+var incart_title            = "{{ $upsell->setting['incart_heading'] }}";
 var show_product_title      = "{{ $upsell->setting['show_product_title'] }}";
 var show_variant_selection  = "{{ $upsell->setting['show_variant_selection'] }}";
 var show_compare_price      = "{{ $upsell->setting['show_compare_price'] }}";
@@ -26,7 +19,7 @@ var product_image           = appear_on_product.image.src;
 var title                   = (appear_on_product.title).toString();
 var product_title           = alphaProductShortName(title,30);
 var product_variants        = appear_on_product.variants;
-        var in_cart_Html = '<div class="alpha_upsell_in_page_custom"><div class="alpha_upsell_in_page_design_inpage"><div class="alpha_upsell_in_page_p_upsell"><div class="alpha_upsell_in_page_timer_title"><p>'+incart_title+" Timer until the offer expires"+'</p></div>'
+        var in_cart_Html = '<div class="alpha_upsell_in_page_custom"><div class="alpha_upsell_in_page_design_inpage"><div class="alpha_upsell_in_page_p_upsell"><div class="alpha_upsell_in_page_timer_title"><p>'+incart_title+'</p></div>'
         if(getUpsell.setting.count_down_timer != 0){
             in_cart_Html += '<div class="alpha_upsell_in_page_timer"><input type="text" readonly class="minutes"><input type="text"  readonly class="seconds"></div>'
         }
@@ -344,7 +337,7 @@ var product_variants        = appear_on_product.variants;
      * ============================================
      *
      */
-    const themeCheckoutBtn = ['#checkout','input[name="checkout"]','button[name="checkout"]','input[class="action_button right"]','button[class~="btn-checkout"]','div[class~="actions"] button[class~="btn"]','div[class~="cart-checkout-btn"] .no-mrg','a[class~=btn-checkout]'];
+    const newThemeCheckoutBtn = ['input[class="btn"]','#checkout','input[name="checkout"]','button[name="checkout"]','input[class="action_button right"]','button[class~="btn-checkout"]','div[class~="actions"] button[class~="btn"]','div[class~="cart-checkout-btn"] .no-mrg','a[class~=btn-checkout]'];
     
      /*
      *
@@ -354,10 +347,11 @@ var product_variants        = appear_on_product.variants;
      * ============================================
      *
      */
-    for(checkoutBtn of themeCheckoutBtn)
+    // document.addEventListener('load',function(){});
+    for(checkoutBtn of newThemeCheckoutBtn)
     {
-        const themeCheckOutBtn = document.querySelectorAll(checkoutBtn)
-        for(eachChekout of themeCheckOutBtn)
+        const themeCheckOutBtnnew = document.querySelectorAll(checkoutBtn)
+        for(eachChekout of themeCheckOutBtnnew)
         {
             if(eachChekout != undefined)
             {
