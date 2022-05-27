@@ -287,5 +287,6 @@
         $(document).on('click','#delete_button_auto',function(){
             $('.ppu-auto-button')[0].click()
         });
+        console.log('webhook test');
     </script>
 @endpush
